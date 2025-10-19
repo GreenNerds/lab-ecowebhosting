@@ -1,25 +1,37 @@
 version: "3.9"
+
 services:
+  # Sert le miroir statique (répertoire ../legacy_website) sur un Nginx "origin"
   origin:
     image: nginx:alpine
     container_name: eco-origin
-    ports: ["18080:80"]
+    ports:
+      - "18080:80"     # port interne uniquement si tu veux y accéder directement
     volumes:
-      - ./legacy_website:/usr/share/nginx/html:ro
+      - ./nginx/origin.conf:/etc/nginx/conf.d/default.conf:ro
+      - ../legacy_website/green-nerds.io/:/usr/share/nginx/html:ro
     restart: unless-stopped
+
+  # Reverse-proxy baseline (configuration "par défaut")
   web-baseline:
     image: nginx:alpine
     container_name: eco-baseline
-    ports: ["8080:80"]
+    ports:
+      - "8080:80"
+    depends_on:
+      - origin
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./legacy_website:/usr/share/nginx/html:ro
     restart: unless-stopped
+
+  # Reverse-proxy optimisé (compression + cache statique long, etc.)
   web-optimized:
     image: nginx:alpine
     container_name: eco-optimized
-    ports: ["8081:80"]
+    ports:
+      - "8081:80"
+    depends_on:
+      - origin
     volumes:
       - ./nginx/optimized.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./legacy_website:/usr/share/nginx/html:ro
     restart: unless-stopped
