@@ -1,48 +1,59 @@
-🌱 Atelier EcoIndex — Impact de l’hébergement web
+🌍 Atelier EcoIndex — Impact de l’hébergement web
 Objectif
 
-Montrer, à contenu identique, comment un hébergement web configuré proprement côté serveur peut améliorer un score EcoIndex et réduire l’impact environnemental d’un site.
+Montrer, à contenu identique, comment un hébergement web configuré côté serveur peut améliorer le score EcoIndex et réduire l’impact environnemental d’un site.
 
 L’idée : on ne touche ni au code, ni aux images, ni au CSS/JS — on joue uniquement sur la configuration serveur (compression, cache, headers).
 
 Prérequis
 
-Windows 10 ou 11
+Windows 10/11
 
 WSL2
- avec Ubuntu (ou équivalent)
+ (Ubuntu conseillé)
 
 Docker Desktop
- (support WSL2 activé)
+ (WSL2 activé)
 
-Un peu de ligne de commande
+Paquets côté WSL (Ubuntu) :
+
+sudo apt-get update && sudo apt-get install -y \
+  curl wget file gzip python3 libxml2-utils
+
+
+libxml2-utils fournit xmllint (optionnel mais plus rapide). Le script tombe sinon sur Python xml.etree.
 
 Structure du projet
 hosting-ecoindex-workshop/
 ├── docker-compose.yml
 ├── nginx/
-│   ├── default.conf       # config baseline
-│   └── optimized.conf     # config optimisée
-├── legacy_website/        # miroir statique du site
+│   ├── default.conf       # baseline
+│   └── optimized.conf     # optimisée
+├── scripts/
+│   └── fetch_from_sitemap.sh
+├── legacy_website/        # miroir statique (généré par le script)
 ├── reports_baseline/      # rapports EcoIndex (baseline)
 └── reports_opt/           # rapports EcoIndex (optimisé)
 
-1️⃣ Récupérer un miroir statique du site
+1️⃣ Récupérer le miroir statique (via sitemap)
 
-Dans WSL :
+Le repo contient scripts/fetch_from_sitemap.sh.
+Il détecte le sitemap, liste les pages (hors médias/feed/wp-json) puis télécharge pages + assets.
 
-cd ~
-mkdir -p ~/green-nerds/legacy_website
-cd ~/green-nerds/legacy_website
+# Depuis la racine du repo
+chmod +x scripts/fetch_from_sitemap.sh
 
-# Exemple avec le site Green Nerds
-wget --mirror --convert-links --adjust-extension --page-requisites \
-     --no-parent https://green-nerds.io/
+# Exemple : récupérer green-nerds.io dans ./legacy_website/green-nerds.io
+SITE="https://green-nerds.io"
+OUT="./legacy_website/green-nerds.io"
+scripts/fetch_from_sitemap.sh "$SITE" "$OUT"
 
 
-Créer une petite page crawl.html pour le crawl EcoIndex :
+Le script affiche un récap (sitemap détecté, nb de pages retenues, etc.) et stocke le miroir dans ./legacy_website/green-nerds.io.
 
-ROOT="$HOME/green-nerds/legacy_website/green-nerds.io"
+Créer une petite page crawl.html (hub pour EcoIndex) dans le dossier du miroir :
+
+ROOT="./legacy_website/green-nerds.io"
 cd "$ROOT"
 
 cat > crawl.html <<'HTML'
@@ -54,34 +65,45 @@ ls -1 *.html | grep -v '^crawl\.html$' | head -n 50 \
 
 echo '</ul>' >> crawl.html
 
+
+Astuce : adapte head -n 50 selon la taille du site.
+
 2️⃣ Docker Compose
 
-Créer docker-compose.yml :
+docker-compose.yml (3 services : origin, web-baseline, web-optimized) :
 
 version: "3.9"
 services:
   origin:
     image: nginx:alpine
+    container_name: eco-origin
     ports: ["18080:80"]
     volumes:
-      - ../legacy_website:/usr/share/nginx/html:ro
+      - ./legacy_website:/usr/share/nginx/html:ro
+    restart: unless-stopped
 
   web-baseline:
     image: nginx:alpine
+    container_name: eco-baseline
     ports: ["8080:80"]
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
-      - ../legacy_website:/usr/share/nginx/html:ro
+      - ./legacy_website:/usr/share/nginx/html:ro
+    restart: unless-stopped
 
   web-optimized:
     image: nginx:alpine
+    container_name: eco-optimized
     ports: ["8081:80"]
     volumes:
       - ./nginx/optimized.conf:/etc/nginx/conf.d/default.conf:ro
-      - ../legacy_website:/usr/share/nginx/html:ro
+      - ./legacy_website:/usr/share/nginx/html:ro
+    restart: unless-stopped
 
 3️⃣ Config Nginx
+
 baseline — nginx/default.conf
+
 server {
   listen 80;
   root /usr/share/nginx/html/green-nerds.io;
@@ -90,7 +112,9 @@ server {
   location / { try_files $uri $uri/ =404; }
 }
 
+
 optimisée — nginx/optimized.conf
+
 server {
   listen 80;
   root /usr/share/nginx/html/green-nerds.io;
@@ -107,7 +131,7 @@ server {
     font/ttf font/otf application/vnd.ms-fontobject;
 
   # Cache par type
-  location ~* \.(?:css|js|woff2?|svg|json|ico)$ {
+  location ~* \.(?:css|js|woff2?|svg|json|ico|map)$ {
     add_header Cache-Control "public, max-age=31536000, immutable";
     try_files $uri =404;
   }
@@ -125,40 +149,42 @@ server {
   location / { try_files $uri $uri/ =404; }
 }
 
-4️⃣ Lancer le lab
+4️⃣ Démarrer
 docker compose up -d --force-recreate
 
 
-Vérifie que tout répond :
+Sanity-check :
 
-for U in http://localhost:8080/ http://localhost:8081/; do
-  printf "%-25s " "$U"; curl -sI "$U" | head -n1; done
+for U in http://localhost:8080/ http://localhost:8081/ http://localhost:18080/; do
+  printf "%-30s " "$U"; curl -sI "$U" | head -n1; done
 
-5️⃣ Analyse EcoIndex
+5️⃣ Mesure EcoIndex (baseline vs optimisé)
 
-Créer les dossiers de sortie :
+Créer les dossiers :
 
 mkdir -p reports_baseline reports_opt
 
 
-Lancer les analyses :
+Lancer les analyses (via l’image vvatelot/ecoindex-cli) :
 
 # Baseline
-docker run --rm -v "$PWD/reports_baseline:/tmp/ecoindex-cli" \
+docker run --rm \
+  -v "$PWD/reports_baseline:/tmp/ecoindex-cli" \
   vvatelot/ecoindex-cli:latest \
   ecoindex-cli analyze \
     --url "http://host.docker.internal:8080/crawl.html" \
     --recursive --no-interaction --html-report --export-format csv
 
 # Optimisé
-docker run --rm -v "$PWD/reports_opt:/tmp/ecoindex-cli" \
+docker run --rm \
+  -v "$PWD/reports_opt:/tmp/ecoindex-cli" \
   vvatelot/ecoindex-cli:latest \
   ecoindex-cli analyze \
     --url "http://host.docker.internal:8081/crawl.html" \
     --recursive --no-interaction --html-report --export-format csv
 
 
-Si host.docker.internal ne passe pas, essaie http://localhost:8080.
+Si host.docker.internal ne marche pas dans ton WSL, remplace par http://localhost:8080 et http://localhost:8081.
 
 6️⃣ Visualiser les rapports
 # Baseline
@@ -174,26 +200,47 @@ http://localhost:19080
 http://localhost:19081
 
 Résultats typiques
-Version	Score	Taille moyenne	Requêtes	GES (g)	Eau (cl)
-Baseline	~54	2.35 MB	64	1.92	2.88
-Optimisée	~56	1.65 MB	64	1.87	2.81
+Version	Score	Taille moy.	Requêtes	GES (g)	Eau (cl)
+Baseline	~54	~2.35 MB	64	1.92	2.88
+Optimisée	~56	~1.65 MB	64	1.87	2.81
 
-Gain : +2 à +3 points EcoIndex sans modifier le contenu.
-La différence vient principalement de la compression et du cache HTTP.
++2 à +3 points EcoIndex sans modifier le contenu (compression + cache HTTP).
 
-Ce qu’on montre avec cet atelier
+Ce qu’on montre
 
-L’hébergement seul (Nginx) peut influencer un score EcoIndex.
+L’hébergement seul (Nginx) influence des métriques EcoIndex (octets transférés).
 
-Les gains restent modestes mais mesurables.
+Les requêtes ne changent pas (contenu inchangé).
 
-Les optimisations “contenu” (images, JS, lazy-load…) viendront ensuite.
+Les gros gains viendront ensuite des optimisations de contenu (hors atelier).
 
-Le tout est reproductible, local et sans dépendance cloud.
+Démo locale, reproductible, indépendante du cloud.
+
+Scripts
+
+scripts/fetch_from_sitemap.sh
+
+Entrées : SITE (URL du site), OUT_DIR (dossier de sortie).
+
+Exemple :
+
+scripts/fetch_from_sitemap.sh "https://green-nerds.io" "./legacy_website/green-nerds.io"
+
+
+Détails :
+
+Détecte wp-sitemap.xml / sitemap_index.xml / sitemap.xml
+
+Parse via xmllint (ou Python fallback)
+
+Filtre médias/feeds/wp-json
+
+Télécharge pages + assets avec wget (UA desktop, conversions de liens, extensions)
+
+Sortie dans OUT_DIR
 
 Crédits
 
-Atelier conçu dans le cadre de Green Nerds.
-Basé sur EcoIndex CLI
- et Nginx.
+Atelier Green Nerds.
+Outils : EcoIndex CLI & Nginx.
 Auteur : Loïc Darras — 2025.
