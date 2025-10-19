@@ -2,7 +2,7 @@
 
 ## Objectif
 Montrer, à contenu identique, comment un hébergement web configuré côté serveur peut **améliorer le score EcoIndex** et réduire l’impact environnemental d’un site.  
-On ne touche pas au **HTML/CSS/JS/images** — on agit sur la **config serveur** (compression, cache, headers).
+On agit sur la **config serveur** (compression, cache, headers).
 
 ## Prérequis
 - Windows 10 / 11
