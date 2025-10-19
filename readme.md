@@ -1,90 +1,110 @@
-# 🌍 Atelier EcoIndex — Impact de l’hébergement web
 
-## Objectif
-Montrer, à contenu identique, comment un hébergement web configuré côté serveur peut **améliorer le score EcoIndex** et réduire l’impact environnemental d’un site.  
-On agit sur la **config serveur** (compression, cache, headers).
+# 🧪 Workshop — EcoIndex & Hébergement Web
 
-## Prérequis
-- Windows 10 / 11
-- WSL2 (Ubuntu conseillé)
-- Docker Desktop (WSL2 activé)
-- Paquets utiles côté WSL :
+## 🎯 Objectif
+
+Montrer, à périmètre constant, comment un hébergement web optimisé côté serveur peut réduire l’impact environnemental (vu via EcoIndex) par rapport à un hébergement “par défaut”.
+
+## ⚙️ Pré-requis
+
+- **Windows + WSL2** (Ubuntu conseillé)
+- **Docker Desktop** installé et lancé
+- **git** et **curl** disponibles
+
+---
+
+## 🪣 Étapes du lab
+
+### 1️⃣ Récupérer le site (miroir statique)
+
+Un script est fourni dans `scripts/fetch_from_sitemap.sh` :
+
 ```bash
-sudo apt install -y curl wget file gzip python3 libxml2-utils
+./scripts/fetch_from_sitemap.sh https://green-nerds.io ./legacy_website/green-nerds.io
 ```
 
-## Structure
-```text
-.
-├── docker-compose.yml
-├── nginx/
-│   ├── default.conf
-│   └── optimized.conf
-├── scripts/
-│   └── fetch_from_sitemap.sh
-├── legacy_website/
-├── reports_baseline/
-└── reports_opt/
-```
+À la fin, vous obtenez un dossier `legacy_website/green-nerds.io` contenant les pages HTML, assets, etc.
 
-## 1) Récupérer le miroir statique
-```bash
-chmod +x scripts/fetch_from_sitemap.sh
-SITE="https://green-nerds.io"
-OUT="./legacy_website/green-nerds.io"
-scripts/fetch_from_sitemap.sh "$SITE" "$OUT"
-```
+---
 
-Créer la page hub **dans le miroir** :
-```bash
-ROOT="./legacy_website/green-nerds.io"
-cd "$ROOT"
+### 2️⃣ Démarrer l’environnement Docker
 
-cat > crawl.html <<'HTML'
-<!doctype html><meta charset="utf-8"><title>Eco hub</title><h1>Eco hub</h1><ul>
-HTML
-
-ls -1 *.html | grep -v '^crawl\.html$' | head -n 50 | while read -r f; do printf '  <li><a href="/%s">/%s</a></li>\n' "$f" "$f"; done >> crawl.html
-
-echo '</ul>' >> crawl.html
-```
-
-## 2) Lancer les serveurs
 ```bash
 docker compose up -d --force-recreate
 ```
-Vérifier :
-```bash
-# Vérifie que les 3 serveurs répondent
-for U in \
-  http://localhost:8080/crawl.html \
-  http://localhost:8081/crawl.html \
-  http://localhost:18080/green-nerds.io/crawl.html; do
-  printf "%-45s " "$U"; curl -sI "$U" | head -n1
-done
 
+Trois services sont disponibles :
+- `eco-origin` → sert le miroir brut (référence)
+- `eco-baseline` → Nginx sans optimisations
+- `eco-optimized` → Nginx avec compression + cache
+
+Vérifiez qu’ils répondent :
+```bash
+curl -I http://localhost:8080/
+curl -I http://localhost:8081/
+curl -I http://localhost:18080/crawl.html
 ```
 
-## 3) Mesure EcoIndex
-```bash
-mkdir -p reports_baseline reports_opt
+---
 
+### 3️⃣ Mesure EcoIndex
+
+> 💡 Le flag `--add-host host.docker.internal:host-gateway` garantit que le conteneur EcoIndex accède bien à votre environnement WSL2 via Docker Desktop.
+
+```bash
 # Baseline
-docker run --rm   -v "$PWD/reports_baseline:/tmp/ecoindex-cli"   vvatelot/ecoindex-cli:latest   ecoindex-cli analyze     --url "http://host.docker.internal:8080/crawl.html"     --recursive --no-interaction --html-report --export-format csv
+mkdir -p reports_baseline
+docker run --rm   --add-host host.docker.internal:host-gateway   -v "$PWD/reports_baseline:/tmp/ecoindex-cli"   vvatelot/ecoindex-cli:latest   ecoindex-cli analyze     --url "http://localhost:8080/"     --recursive --no-interaction --html-report --export-format csv
 
 # Optimisé
-docker run --rm   -v "$PWD/reports_opt:/tmp/ecoindex-cli"   vvatelot/ecoindex-cli:latest   ecoindex-cli analyze     --url "http://host.docker.internal:8081/crawl.html"     --recursive --no-interaction --html-report --export-format csv
+mkdir -p reports_opt
+docker run --rm   --add-host host.docker.internal:host-gateway   -v "$PWD/reports_opt:/tmp/ecoindex-cli"   vvatelot/ecoindex-cli:latest   ecoindex-cli analyze     --url "http://localhost:8081/"     --recursive --no-interaction --html-report --export-format csv
 ```
-> Sous WSL, si `host.docker.internal` ne fonctionne pas : utiliser `http://localhost:8080` et `http://localhost:8081`.
 
-## 4) Visualiser les rapports
+Les rapports HTML et CSV seront disponibles dans :
+- `./reports_baseline/output/.../index.html`
+- `./reports_opt/output/.../index.html`
+
+---
+
+### 4️⃣ Visualiser les rapports
+
 ```bash
-# Baseline
+# Rapports baseline
 docker run --rm -p 19080:80   -v "$PWD/reports_baseline/output:/usr/share/nginx/html:ro" nginx:alpine
 
-# Optimisé
+# (dans un autre terminal)
+# Rapports optimisés
 docker run --rm -p 19081:80   -v "$PWD/reports_opt/output:/usr/share/nginx/html:ro" nginx:alpine
 ```
-Puis ouvrir :
-- http://localhost:19080  
-- http://localhost:19081
+
+Ouvrez ensuite :
+- http://localhost:19080/
+- http://localhost:19081/
+
+---
+
+### 5️⃣ Nettoyage
+
+```bash
+docker compose down
+rm -rf reports_baseline reports_opt
+```
+
+---
+
+## 📈 Résultats attendus
+
+| Config | Score moyen | Poids moyen | GES | Eau |
+|--------|-------------|-------------|-----|-----|
+| Baseline | ~54 | ~2.3 MB | ~1.9 | ~2.8 |
+| Optimisée | ~56 | ~1.6 MB | ~1.8 | ~2.7 |
+
+**Gain :** +2 pts EcoIndex (≈ +4 %), obtenu uniquement par gzip + cache côté serveur.
+
+---
+
+## 🧩 Conclusion
+
+Même sans toucher au contenu, la configuration serveur (compression, cache, headers) permet une réduction mesurable de l’impact environnemental.  
+Les gains plus forts viendront ensuite des optimisations de contenu (images, JS, lazy-loading…).
