@@ -1,0 +1,25 @@
+version: "3.9"
+services:
+  origin:
+    image: nginx:alpine
+    container_name: eco-origin
+    ports: ["18080:80"]
+    volumes:
+      - ./legacy_website:/usr/share/nginx/html:ro
+    restart: unless-stopped
+  web-baseline:
+    image: nginx:alpine
+    container_name: eco-baseline
+    ports: ["8080:80"]
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./legacy_website:/usr/share/nginx/html:ro
+    restart: unless-stopped
+  web-optimized:
+    image: nginx:alpine
+    container_name: eco-optimized
+    ports: ["8081:80"]
+    volumes:
+      - ./nginx/optimized.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./legacy_website:/usr/share/nginx/html:ro
+    restart: unless-stopped
