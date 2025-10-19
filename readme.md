@@ -10,7 +10,7 @@ On ne touche pas au **HTML/CSS/JS/images** — on agit sur la **config serveur**
 - Docker Desktop (WSL2 activé)
 - Paquets utiles côté WSL :
 ```bash
-sudo apt update && sudo apt install -y curl wget file gzip python3 libxml2-utils
+sudo apt install -y curl wget file gzip python3 libxml2-utils
 ```
 
 ## Structure
