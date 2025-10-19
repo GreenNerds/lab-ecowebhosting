@@ -55,8 +55,14 @@ docker compose up -d --force-recreate
 ```
 Vérifier :
 ```bash
-for U in http://localhost:8080/ http://localhost:8081/ http://localhost:18080/; do
-  printf "%-30s " "$U"; curl -sI "$U" | head -n1; done
+# Vérifie que les 3 serveurs répondent
+for U in \
+  http://localhost:8080/crawl.html \
+  http://localhost:8081/crawl.html \
+  http://localhost:18080/green-nerds.io/crawl.html; do
+  printf "%-45s " "$U"; curl -sI "$U" | head -n1
+done
+
 ```
 
 ## 3) Mesure EcoIndex
