@@ -7,7 +7,7 @@ L’idée : on ne touche ni au code, ni aux images, ni au CSS/JS — on joue uni
 
 Prérequis
 
-Windows 10/11
+Windows 10 / 11
 
 WSL2
  (Ubuntu conseillé)
@@ -15,13 +15,13 @@ WSL2
 Docker Desktop
  (WSL2 activé)
 
-Paquets côté WSL (Ubuntu) :
+Paquets utiles côté WSL :
 
-sudo apt-get update && sudo apt-get install -y \
+sudo apt update && sudo apt install -y \
   curl wget file gzip python3 libxml2-utils
 
 
-libxml2-utils fournit xmllint (optionnel mais plus rapide). Le script tombe sinon sur Python xml.etree.
+libxml2-utils fournit xmllint ; sinon le script bascule sur Python (xml.etree).
 
 Structure du projet
 hosting-ecoindex-workshop/
@@ -31,27 +31,23 @@ hosting-ecoindex-workshop/
 │   └── optimized.conf     # optimisée
 ├── scripts/
 │   └── fetch_from_sitemap.sh
-├── legacy_website/        # miroir statique (généré par le script)
+├── legacy_website/        # miroir statique (généré)
 ├── reports_baseline/      # rapports EcoIndex (baseline)
 └── reports_opt/           # rapports EcoIndex (optimisé)
 
-1️⃣ Récupérer le miroir statique (via sitemap)
+1️⃣ Récupérer le miroir statique
 
-Le repo contient scripts/fetch_from_sitemap.sh.
-Il détecte le sitemap, liste les pages (hors médias/feed/wp-json) puis télécharge pages + assets.
+Le script scripts/fetch_from_sitemap.sh détecte le sitemap, liste les pages (hors médias/feed/wp-json) et télécharge pages + assets.
 
-# Depuis la racine du repo
 chmod +x scripts/fetch_from_sitemap.sh
 
-# Exemple : récupérer green-nerds.io dans ./legacy_website/green-nerds.io
 SITE="https://green-nerds.io"
 OUT="./legacy_website/green-nerds.io"
+
 scripts/fetch_from_sitemap.sh "$SITE" "$OUT"
 
 
-Le script affiche un récap (sitemap détecté, nb de pages retenues, etc.) et stocke le miroir dans ./legacy_website/green-nerds.io.
-
-Créer une petite page crawl.html (hub pour EcoIndex) dans le dossier du miroir :
+Créer ensuite une page crawl.html dans le dossier miroir :
 
 ROOT="./legacy_website/green-nerds.io"
 cd "$ROOT"
@@ -65,13 +61,7 @@ ls -1 *.html | grep -v '^crawl\.html$' | head -n 50 \
 
 echo '</ul>' >> crawl.html
 
-
-Astuce : adapte head -n 50 selon la taille du site.
-
 2️⃣ Docker Compose
-
-docker-compose.yml (3 services : origin, web-baseline, web-optimized) :
-
 version: "3.9"
 services:
   origin:
@@ -153,19 +143,13 @@ server {
 docker compose up -d --force-recreate
 
 
-Sanity-check :
+Vérifier :
 
 for U in http://localhost:8080/ http://localhost:8081/ http://localhost:18080/; do
   printf "%-30s " "$U"; curl -sI "$U" | head -n1; done
 
-5️⃣ Mesure EcoIndex (baseline vs optimisé)
-
-Créer les dossiers :
-
+5️⃣ Analyse EcoIndex
 mkdir -p reports_baseline reports_opt
-
-
-Lancer les analyses (via l’image vvatelot/ecoindex-cli) :
 
 # Baseline
 docker run --rm \
@@ -184,16 +168,19 @@ docker run --rm \
     --recursive --no-interaction --html-report --export-format csv
 
 
-Si host.docker.internal ne marche pas dans ton WSL, remplace par http://localhost:8080 et http://localhost:8081.
+Sous WSL, si host.docker.internal ne passe pas : utilise http://localhost:8080.
 
 6️⃣ Visualiser les rapports
 # Baseline
-docker run --rm -p 19080:80 -v "$PWD/reports_baseline/output:/usr/share/nginx/html:ro" nginx:alpine
+docker run --rm -p 19080:80 \
+  -v "$PWD/reports_baseline/output:/usr/share/nginx/html:ro" nginx:alpine
+
 # Optimisé
-docker run --rm -p 19081:80 -v "$PWD/reports_opt/output:/usr/share/nginx/html:ro" nginx:alpine
+docker run --rm -p 19081:80 \
+  -v "$PWD/reports_opt/output:/usr/share/nginx/html:ro" nginx:alpine
 
 
-Ouvre :
+Puis ouvre :
 
 http://localhost:19080
 
@@ -204,43 +191,48 @@ Version	Score	Taille moy.	Requêtes	GES (g)	Eau (cl)
 Baseline	~54	~2.35 MB	64	1.92	2.88
 Optimisée	~56	~1.65 MB	64	1.87	2.81
 
-+2 à +3 points EcoIndex sans modifier le contenu (compression + cache HTTP).
++2 à +3 points EcoIndex sans modifier le contenu : compression + cache HTTP.
 
-Ce qu’on montre
+Ce qu’on démontre
 
-L’hébergement seul (Nginx) influence des métriques EcoIndex (octets transférés).
+L’hébergement seul (Nginx) peut faire bouger les métriques EcoIndex.
 
-Les requêtes ne changent pas (contenu inchangé).
+Les requêtes ne changent pas : contenu identique.
 
-Les gros gains viendront ensuite des optimisations de contenu (hors atelier).
+Les vrais gains viendront des optimisations de contenu (hors atelier).
 
-Démo locale, reproductible, indépendante du cloud.
+Démo locale, simple et reproductible.
 
 Scripts
-
 scripts/fetch_from_sitemap.sh
 
-Entrées : SITE (URL du site), OUT_DIR (dossier de sortie).
+Entrées :
+
+SITE : URL du site
+
+OUT_DIR : dossier de sortie
 
 Exemple :
 
 scripts/fetch_from_sitemap.sh "https://green-nerds.io" "./legacy_website/green-nerds.io"
 
 
-Détails :
+Fonctionnement :
 
 Détecte wp-sitemap.xml / sitemap_index.xml / sitemap.xml
 
-Parse via xmllint (ou Python fallback)
+Parse via xmllint ou Python
 
-Filtre médias/feeds/wp-json
+Filtre médias / feeds / API
 
-Télécharge pages + assets avec wget (UA desktop, conversions de liens, extensions)
+Télécharge pages + assets via wget
 
-Sortie dans OUT_DIR
+Résultat dans OUT_DIR
 
 Crédits
 
-Atelier Green Nerds.
-Outils : EcoIndex CLI & Nginx.
-Auteur : Loïc Darras — 2025.
+Atelier Green Nerds
+Basé sur Nginx
+ et EcoIndex CLI
+.
+Auteur : Loïc Darras — 2025
