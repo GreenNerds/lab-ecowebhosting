@@ -1,0 +1,12 @@
+User-agent: MJ12bot
+	Disallow: /
+User-agent: AhrefsBot
+	Disallow: /
+Sitemap: https://green-nerds.io/sitemaps.xml
+User-agent: Mediapartners-Google
+	Disallow: 
+User-agent: Googlebot-Image
+	Disallow: 
+User-agent: *
+	Disallow: /wp-admin/
+	Allow: /wp-admin/admin-ajax.php

@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="fr-FR">
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>(()=>{class RocketLazyLoadScripts{constructor(){this.v="2.0.3",this.userEvents=["keydown","keyup","mousedown","mouseup","mousemove","mouseover","mouseenter","mouseout","mouseleave","touchmove","touchstart","touchend","touchcancel","wheel","click","dblclick","input","visibilitychange"],this.attributeEvents=["onblur","onclick","oncontextmenu","ondblclick","onfocus","onmousedown","onmouseenter","onmouseleave","onmousemove","onmouseout","onmouseover","onmouseup","onmousewheel","onscroll","onsubmit"]}async t(){this.i(),this.o(),/iP(ad|hone)/.test(navigator.userAgent)&&this.h(),this.u(),this.l(this),this.m(),this.k(this),this.p(this),this._(),await Promise.all([this.R(),this.L()]),this.lastBreath=Date.now(),this.S(this),this.P(),this.D(),this.O(),this.M(),await this.C(this.delayedScripts.normal),await this.C(this.delayedScripts.defer),await this.C(this.delayedScripts.async),this.F("domReady"),await this.T(),await this.j(),await this.I(),this.F("windowLoad"),await this.A(),window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this.everythingLoaded=!0,this.lastTouchEnd&&await new Promise((t=>setTimeout(t,500-Date.now()+this.lastTouchEnd))),this.H(),this.F("all"),this.U(),this.W()}i(){this.CSPIssue=sessionStorage.getItem("rocketCSPIssue"),document.addEventListener("securitypolicyviolation",(t=>{this.CSPIssue||"script-src-elem"!==t.violatedDirective||"data"!==t.blockedURI||(this.CSPIssue=!0,sessionStorage.setItem("rocketCSPIssue",!0))}),{isRocket:!0})}o(){window.addEventListener("pageshow",(t=>{this.persisted=t.persisted,this.realWindowLoadedFired=!0}),{isRocket:!0}),window.addEventListener("pagehide",(()=>{this.onFirstUserAction=null}),{isRocket:!0})}h(){let t;function e(e){t=e}window.addEventListener("touchstart",e,{isRocket:!0}),window.addEventListener("touchend",(function i(o){Math.abs(o.changedTouches[0].pageX-t.changedTouches[0].pageX)<10&&Math.abs(o.changedTouches[0].pageY-t.changedTouches[0].pageY)<10&&o.timeStamp-t.timeStamp<200&&(o.target.dispatchEvent(new PointerEvent("click",{target:o.target,bubbles:!0,cancelable:!0,detail:1})),event.preventDefault(),window.removeEventListener("touchstart",e,{isRocket:!0}),window.removeEventListener("touchend",i,{isRocket:!0}))}),{isRocket:!0})}q(t){this.userActionTriggered||("mousemove"!==t.type||this.firstMousemoveIgnored?"keyup"===t.type||"mouseover"===t.type||"mouseout"===t.type||(this.userActionTriggered=!0,this.onFirstUserAction&&this.onFirstUserAction()):this.firstMousemoveIgnored=!0),"click"===t.type&&t.preventDefault(),this.savedUserEvents.length>0&&(t.stopPropagation(),t.stopImmediatePropagation()),"touchstart"===this.lastEvent&&"touchend"===t.type&&(this.lastTouchEnd=Date.now()),"click"===t.type&&(this.lastTouchEnd=0),this.lastEvent=t.type,this.savedUserEvents.push(t)}u(){this.savedUserEvents=[],this.userEventHandler=this.q.bind(this),this.userEvents.forEach((t=>window.addEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0})))}U(){this.userEvents.forEach((t=>window.removeEventListener(t,this.userEventHandler,{passive:!1,isRocket:!0}))),this.savedUserEvents.forEach((t=>{t.target.dispatchEvent(new window[t.constructor.name](t.type,t))}))}m(){this.eventsMutationObserver=new MutationObserver((t=>{const e="return false";for(const i of t){if("attributes"===i.type){const t=i.target.getAttribute(i.attributeName);t&&t!==e&&(i.target.setAttribute("data-rocket-"+i.attributeName,t),i.target["rocket"+i.attributeName]=new Function("event",t),i.target.setAttribute(i.attributeName,e))}"childList"===i.type&&i.addedNodes.forEach((t=>{if(t.nodeType===Node.ELEMENT_NODE)for(const i of t.attributes)this.attributeEvents.includes(i.name)&&i.value&&""!==i.value&&(t.setAttribute("data-rocket-"+i.name,i.value),t["rocket"+i.name]=new Function("event",i.value),t.setAttribute(i.name,e))}))}})),this.eventsMutationObserver.observe(document,{subtree:!0,childList:!0,attributeFilter:this.attributeEvents})}H(){this.eventsMutationObserver.disconnect(),this.attributeEvents.forEach((t=>{document.querySelectorAll("[data-rocket-"+t+"]").forEach((e=>{e.setAttribute(t,e.getAttribute("data-rocket-"+t)),e.removeAttribute("data-rocket-"+t)}))}))}k(t){Object.defineProperty(HTMLElement.prototype,"onclick",{get(){return this.rocketonclick||null},set(e){this.rocketonclick=e,this.setAttribute(t.everythingLoaded?"onclick":"data-rocket-onclick","this.rocketonclick(event)")}})}S(t){function e(e,i){let o=e[i];e[i]=null,Object.defineProperty(e,i,{get:()=>o,set(s){t.everythingLoaded?o=s:e["rocket"+i]=o=s}})}e(document,"onreadystatechange"),e(window,"onload"),e(window,"onpageshow");try{Object.defineProperty(document,"readyState",{get:()=>t.rocketReadyState,set(e){t.rocketReadyState=e},configurable:!0}),document.readyState="loading"}catch(t){console.log("WPRocket DJE readyState conflict, bypassing")}}l(t){this.originalAddEventListener=EventTarget.prototype.addEventListener,this.originalRemoveEventListener=EventTarget.prototype.removeEventListener,this.savedEventListeners=[],EventTarget.prototype.addEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalAddEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!1,type:e,func:i,options:o})},EventTarget.prototype.removeEventListener=function(e,i,o){o&&o.isRocket||!t.B(e,this)&&!t.userEvents.includes(e)||t.B(e,this)&&!t.userActionTriggered||e.startsWith("rocket-")||t.everythingLoaded?t.originalRemoveEventListener.call(this,e,i,o):t.savedEventListeners.push({target:this,remove:!0,type:e,func:i,options:o})}}F(t){"all"===t&&(EventTarget.prototype.addEventListener=this.originalAddEventListener,EventTarget.prototype.removeEventListener=this.originalRemoveEventListener),this.savedEventListeners=this.savedEventListeners.filter((e=>{let i=e.type,o=e.target||window;return"domReady"===t&&"DOMContentLoaded"!==i&&"readystatechange"!==i||("windowLoad"===t&&"load"!==i&&"readystatechange"!==i&&"pageshow"!==i||(this.B(i,o)&&(i="rocket-"+i),e.remove?o.removeEventListener(i,e.func,e.options):o.addEventListener(i,e.func,e.options),!1))}))}p(t){let e;function i(e){return t.everythingLoaded?e:e.split(" ").map((t=>"load"===t||t.startsWith("load.")?"rocket-jquery-load":t)).join(" ")}function o(o){function s(e){const s=o.fn[e];o.fn[e]=o.fn.init.prototype[e]=function(){return this[0]===window&&t.userActionTriggered&&("string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=i(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{const e=arguments[0][t];delete arguments[0][t],arguments[0][i(t)]=e}))),s.apply(this,arguments),this}}if(o&&o.fn&&!t.allJQueries.includes(o)){const e={DOMContentLoaded:[],"rocket-DOMContentLoaded":[]};for(const t in e)document.addEventListener(t,(()=>{e[t].forEach((t=>t()))}),{isRocket:!0});o.fn.ready=o.fn.init.prototype.ready=function(i){function s(){parseInt(o.fn.jquery)>2?setTimeout((()=>i.bind(document)(o))):i.bind(document)(o)}return t.realDomReadyFired?!t.userActionTriggered||t.fauxDomReadyFired?s():e["rocket-DOMContentLoaded"].push(s):e.DOMContentLoaded.push(s),o([])},s("on"),s("one"),s("off"),t.allJQueries.push(o)}e=o}t.allJQueries=[],o(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>e,set(t){o(t)}})}P(){const t=new Map;document.write=document.writeln=function(e){const i=document.currentScript,o=document.createRange(),s=i.parentElement;let n=t.get(i);void 0===n&&(n=i.nextSibling,t.set(i,n));const c=document.createDocumentFragment();o.setStart(c,0),c.appendChild(o.createContextualFragment(e)),s.insertBefore(c,n)}}async R(){return new Promise((t=>{this.userActionTriggered?t():this.onFirstUserAction=t}))}async L(){return new Promise((t=>{document.addEventListener("DOMContentLoaded",(()=>{this.realDomReadyFired=!0,t()}),{isRocket:!0})}))}async I(){return this.realWindowLoadedFired?Promise.resolve():new Promise((t=>{window.addEventListener("load",t,{isRocket:!0})}))}M(){this.pendingScripts=[];this.scriptsMutationObserver=new MutationObserver((t=>{for(const e of t)e.addedNodes.forEach((t=>{"SCRIPT"!==t.tagName||t.noModule||t.isWPRocket||this.pendingScripts.push({script:t,promise:new Promise((e=>{const i=()=>{const i=this.pendingScripts.findIndex((e=>e.script===t));i>=0&&this.pendingScripts.splice(i,1),e()};t.addEventListener("load",i,{isRocket:!0}),t.addEventListener("error",i,{isRocket:!0}),setTimeout(i,1e3)}))})}))})),this.scriptsMutationObserver.observe(document,{childList:!0,subtree:!0})}async j(){await this.J(),this.pendingScripts.length?(await this.pendingScripts[0].promise,await this.j()):this.scriptsMutationObserver.disconnect()}D(){this.delayedScripts={normal:[],async:[],defer:[]},document.querySelectorAll("script[type$=rocketlazyloadscript]").forEach((t=>{t.hasAttribute("data-rocket-src")?t.hasAttribute("async")&&!1!==t.async?this.delayedScripts.async.push(t):t.hasAttribute("defer")&&!1!==t.defer||"module"===t.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(t):this.delayedScripts.normal.push(t):this.delayedScripts.normal.push(t)}))}async _(){await this.L();let t=[];document.querySelectorAll("script[type$=rocketlazyloadscript][data-rocket-src]").forEach((e=>{let i=e.getAttribute("data-rocket-src");if(i&&!i.startsWith("data:")){i.startsWith("//")&&(i=location.protocol+i);try{const o=new URL(i).origin;o!==location.origin&&t.push({src:o,crossOrigin:e.crossOrigin||"module"===e.getAttribute("data-rocket-type")})}catch(t){}}})),t=[...new Map(t.map((t=>[JSON.stringify(t),t]))).values()],this.N(t,"preconnect")}async $(t){if(await this.G(),!0!==t.noModule||!("noModule"in HTMLScriptElement.prototype))return new Promise((e=>{let i;function o(){(i||t).setAttribute("data-rocket-status","executed"),e()}try{if(navigator.userAgent.includes("Firefox/")||""===navigator.vendor||this.CSPIssue)i=document.createElement("script"),[...t.attributes].forEach((t=>{let e=t.nodeName;"type"!==e&&("data-rocket-type"===e&&(e="type"),"data-rocket-src"===e&&(e="src"),i.setAttribute(e,t.nodeValue))})),t.text&&(i.text=t.text),t.nonce&&(i.nonce=t.nonce),i.hasAttribute("src")?(i.addEventListener("load",o,{isRocket:!0}),i.addEventListener("error",(()=>{i.setAttribute("data-rocket-status","failed-network"),e()}),{isRocket:!0}),setTimeout((()=>{i.isConnected||e()}),1)):(i.text=t.text,o()),i.isWPRocket=!0,t.parentNode.replaceChild(i,t);else{const i=t.getAttribute("data-rocket-type"),s=t.getAttribute("data-rocket-src");i?(t.type=i,t.removeAttribute("data-rocket-type")):t.removeAttribute("type"),t.addEventListener("load",o,{isRocket:!0}),t.addEventListener("error",(i=>{this.CSPIssue&&i.target.src.startsWith("data:")?(console.log("WPRocket: CSP fallback activated"),t.removeAttribute("src"),this.$(t).then(e)):(t.setAttribute("data-rocket-status","failed-network"),e())}),{isRocket:!0}),s?(t.fetchPriority="high",t.removeAttribute("data-rocket-src"),t.src=s):t.src="data:text/javascript;base64,"+window.btoa(unescape(encodeURIComponent(t.text)))}}catch(i){t.setAttribute("data-rocket-status","failed-transform"),e()}}));t.setAttribute("data-rocket-status","skipped")}async C(t){const e=t.shift();return e?(e.isConnected&&await this.$(e),this.C(t)):Promise.resolve()}O(){this.N([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}N(t,e){this.trash=this.trash||[];let i=!0;var o=document.createDocumentFragment();t.forEach((t=>{const s=t.getAttribute&&t.getAttribute("data-rocket-src")||t.src;if(s&&!s.startsWith("data:")){const n=document.createElement("link");n.href=s,n.rel=e,"preconnect"!==e&&(n.as="script",n.fetchPriority=i?"high":"low"),t.getAttribute&&"module"===t.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),t.crossOrigin&&(n.crossOrigin=t.crossOrigin),t.integrity&&(n.integrity=t.integrity),t.nonce&&(n.nonce=t.nonce),o.appendChild(n),this.trash.push(n),i=!1}})),document.head.appendChild(o)}W(){this.trash.forEach((t=>t.remove()))}async T(){try{document.readyState="interactive"}catch(t){}this.fauxDomReadyFired=!0;try{await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this.G(),window.dispatchEvent(new Event("rocket-DOMContentLoaded"))}catch(t){console.error(t)}}async A(){try{document.readyState="complete"}catch(t){}try{await this.G(),document.dispatchEvent(new Event("rocket-readystatechange")),await this.G(),document.rocketonreadystatechange&&document.rocketonreadystatechange(),await this.G(),window.dispatchEvent(new Event("rocket-load")),await this.G(),window.rocketonload&&window.rocketonload(),await this.G(),this.allJQueries.forEach((t=>t(window).trigger("rocket-jquery-load"))),await this.G();const t=new Event("rocket-pageshow");t.persisted=this.persisted,window.dispatchEvent(t),await this.G(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}catch(t){console.error(t)}}async G(){Date.now()-this.lastBreath>45&&(await this.J(),this.lastBreath=Date.now())}async J(){return document.hidden?new Promise((t=>setTimeout(t))):new Promise((t=>requestAnimationFrame(t)))}B(t,e){return e===document&&"readystatechange"===t||(e===document&&"DOMContentLoaded"===t||(e===window&&"DOMContentLoaded"===t||(e===window&&"load"===t||e===window&&"pageshow"===t)))}static run(){(new RocketLazyLoadScripts).t()}}RocketLazyLoadScripts.run()})();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+	<title>Mentions Légales - Green Nerds</title><link rel="preload" data-rocket-preload as="image" href="wp-content/uploads/2021/07/Group-27.svg" fetchpriority="high">
+	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+	<meta name="dc.title" content="Mentions Légales - Green Nerds">
+<meta name="dc.description" content="Mentions légales Merci de lire avec attention les différentes modalités d’utilisation du présent site avant d’y parcourir ses pages. En vous connectant sur ce site, vous acceptez, sans réserves, les présentes modalités.Responsables du site internetAussi, conformément à l’article n°6 de la Loi n°2004-575 du 21 Juin 2004 pour la confiance…">
+<meta name="dc.relation" content="https://green-nerds.io/mentions-legales">
+<meta name="dc.source" content="https://green-nerds.io">
+<meta name="dc.language" content="fr_FR">
+<meta name="description" content="Mentions légales Merci de lire avec attention les différentes modalités d’utilisation du présent site avant d’y parcourir ses pages. En vous connectant sur ce site, vous acceptez, sans réserves, les présentes modalités.Responsables du site internetAussi, conformément à l’article n°6 de la Loi n°2004-575 du 21 Juin 2004 pour la confiance…">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+<link rel="canonical" href="mentions-legales.html">
+<meta property="og:url" content="https://green-nerds.io/mentions-legales">
+<meta property="og:site_name" content="Green Nerds">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mentions Légales - Green Nerds">
+<meta property="og:description" content="Mentions légales Merci de lire avec attention les différentes modalités d’utilisation du présent site avant d’y parcourir ses pages. En vous connectant sur ce site, vous acceptez, sans réserves, les présentes modalités.Responsables du site internetAussi, conformément à l’article n°6 de la Loi n°2004-575 du 21 Juin 2004 pour la confiance…">
+<meta property="og:image" content="https://green-nerds.io/wp-content/uploads/2023/01/Sans-titre-1.jpg">
+<meta property="og:image:secure_url" content="https://green-nerds.io/wp-content/uploads/2023/01/Sans-titre-1.jpg">
+<meta property="og:image:width" content="1640">
+<meta property="og:image:height" content="856">
+<meta property="og:image:alt" content="sans titre 1">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Mentions Légales - Green Nerds">
+<meta name="twitter:description" content="Mentions légales Merci de lire avec attention les différentes modalités d’utilisation du présent site avant d’y parcourir ses pages. En vous connectant sur ce site, vous acceptez, sans réserves, les présentes modalités.Responsables du site internetAussi, conformément à l’article n°6 de la Loi n°2004-575 du 21 Juin 2004 pour la confiance…">
+
+<link rel="alternate" type="application/rss+xml" title="Green Nerds &raquo; Flux" href="https://green-nerds.io/feed" />
+<link rel="alternate" type="application/rss+xml" title="Green Nerds &raquo; Flux des commentaires" href="https://green-nerds.io/comments/feed" />
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id='wpseopress-local-business-style-inline-css'>
+span.wp-block-wpseopress-local-business-field{margin-right:8px}
+
+</style>
+<style id='wpseopress-table-of-contents-style-inline-css'>
+.wp-block-wpseopress-table-of-contents li.active>a{font-weight:bold}
+
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+:root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel='stylesheet' id='hello-elementor-css' href='wp-content/themes/la-quincaillerie/style.min.css%3Fver=3.0.0.css' media='all' />
+<link rel='stylesheet' id='hello-elementor-theme-style-css' href='wp-content/themes/la-quincaillerie/theme.min.css%3Fver=3.0.0.css' media='all' />
+<link rel='stylesheet' id='hello-elementor-header-footer-css' href='wp-content/themes/la-quincaillerie/header-footer.min.css%3Fver=3.0.0.css' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='wp-content/uploads/elementor/css/custom-frontend.min.css%3Fver=1760908596.css' media='all' />
+<link rel='stylesheet' id='widget-image-css' href='wp-content/plugins/elementor/assets/css/widget-image.min.css%3Fver=3.32.4.css' media='all' />
+<link rel='stylesheet' id='widget-nav-menu-css' href='wp-content/uploads/elementor/css/custom-pro-widget-nav-menu.min.css%3Fver=1760908596.css' media='all' />
+<link rel='stylesheet' id='widget-heading-css' href='wp-content/plugins/elementor/assets/css/widget-heading.min.css%3Fver=3.32.4.css' media='all' />
+<link rel='stylesheet' id='widget-icon-list-css' href='wp-content/uploads/elementor/css/custom-widget-icon-list.min.css%3Fver=1760908596.css' media='all' />
+<link rel='stylesheet' id='e-animation-fadeInLeft-css' href='wp-content/plugins/elementor/assets/lib/animations/styles/fadeInLeft.min.css%3Fver=3.32.4.css' media='all' />
+<link rel='stylesheet' id='e-popup-css' href='wp-content/plugins/elementor-pro/assets/css/conditionals/popup.min.css%3Fver=3.32.2.css' media='all' />
+<link rel='stylesheet' id='widget-form-css' href='wp-content/plugins/elementor-pro/assets/css/widget-form.min.css%3Fver=3.32.2.css' media='all' />
+<link rel='stylesheet' id='elementor-post-9-css' href='wp-content/uploads/elementor/css/post-9.css%3Fver=1760908596.css' media='all' />
+<link data-minify="1" rel='stylesheet' id='font-awesome-5-all-css' href='wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css%3Fver=1760908597.css' media='all' />
+<link rel='stylesheet' id='font-awesome-4-shim-css' href='wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css%3Fver=3.32.4.css' media='all' />
+<link rel='stylesheet' id='elementor-post-66-css' href='wp-content/uploads/elementor/css/post-66.css%3Fver=1760908638.css' media='all' />
+<link rel='stylesheet' id='elementor-post-159-css' href='wp-content/uploads/elementor/css/post-159.css%3Fver=1760908596.css' media='all' />
+<link rel='stylesheet' id='elementor-post-209-css' href='wp-content/uploads/elementor/css/post-209.css%3Fver=1760908596.css' media='all' />
+<link rel='stylesheet' id='elementor-post-1810-css' href='wp-content/uploads/elementor/css/post-1810.css%3Fver=1760908596.css' media='all' />
+<link rel='stylesheet' id='elementor-post-1636-css' href='wp-content/uploads/elementor/css/post-1636.css%3Fver=1760908596.css' media='all' />
+<link rel='stylesheet' id='hello-elementor-child-style-css' href='wp-content/themes/la-quincaillerie-child/style.css%3Fver=1.0.0.css' media='all' />
+<link rel='stylesheet' id='enlighterjs-css' href='wp-content/plugins/enlighter/cache/enlighterjs.min.css%3Fver=0A0B0C.css' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-gf-local-arimo-css' href='wp-content/cache/min/1/wp-content/uploads/elementor/google-fonts/css/arimo.css%3Fver=1760908597.css' media='all' />
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.32.4" id="font-awesome-4-shim-js" data-rocket-defer defer></script>
+<link rel="https://api.w.org/" href="https://green-nerds.io/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://green-nerds.io/wp-json/wp/v2/pages/66" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://green-nerds.io/xmlrpc.php?rsd" />
+<link rel='shortlink' href='https://green-nerds.io/?p=66' />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://green-nerds.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgreen-nerds.io%2Fmentions-legales" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://green-nerds.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fgreen-nerds.io%2Fmentions-legales&#038;format=xml" />
+<meta name="generator" content="Elementor 3.32.4; features: e_font_icon_svg, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-auto">
+			<style>
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+				.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+					background-image: none !important;
+				}
+				@media screen and (max-height: 1024px) {
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+				@media screen and (max-height: 640px) {
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+					.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+						background-image: none !important;
+					}
+				}
+			</style>
+			<link rel="icon" href="wp-content/uploads/2023/01/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="wp-content/uploads/2023/01/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://green-nerds.io/wp-content/uploads/2023/01/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://green-nerds.io/wp-content/uploads/2023/01/cropped-favicon-270x270.png" />
+		<style id="wp-custom-css">
+			.vert_underline{
+	color:var( --e-global-color-accent );
+	text-decoration:underline;
+	text-underline-offset: 6px;
+	text-decoration-thickness: 2px;
+}
+
+
+.btn_1 .elementor-button{
+	color:#000;
+	text-transform:uppercase;
+	font-weight:bold;
+	font-size:15px;
+	border-radius:999px
+}
+
+@media (min-width:1199px){
+.mobilehn{
+	position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+}
+
+
+
+
+html, body{
+	width:100%;
+	overflow-x:hidden;
+}		</style>
+		
+<!-- Google Tag Manager -->
+<script type="rocketlazyloadscript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KLMNT72');</script>
+<!-- End Google Tag Manager --><noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript><meta name="generator" content="WP Rocket 3.18.3" data-wpr-features="wpr_delay_js wpr_defer_js wpr_minify_js wpr_lazyload_images wpr_oci wpr_minify_css wpr_preload_links wpr_desktop" /></head>
+<body class="wp-singular page-template-default page page-id-66 wp-custom-logo wp-theme-la-quincaillerie wp-child-theme-la-quincaillerie-child elementor-default elementor-template-full-width elementor-kit-9 elementor-page elementor-page-66">
+
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KLMNT72"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link screen-reader-text" href="mentions-legales.html#content">Skip to content</a>
+
+		<header  data-elementor-type="header" data-elementor-id="159" class="elementor elementor-159 elementor-location-header" data-elementor-post-type="elementor_library">
+			<header  class="elementor-element elementor-element-f0bc179 e-flex e-con-boxed e-con e-parent" data-id="f0bc179" data-element_type="container" id="header">
+					<div  class="e-con-inner">
+		<div class="elementor-element elementor-element-9d5c392 e-con-full e-flex e-con e-parent" data-id="9d5c392" data-element_type="container">
+				<div class="elementor-element elementor-element-68b1e20 elementor-widget elementor-widget-image" data-id="68b1e20" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+																<a href="https://green-nerds.io">
+							<img fetchpriority="high" width="108" height="53" src="wp-content/uploads/2021/07/Group-27.svg" class="attachment-large size-large wp-image-1094" alt="group (27)" />								</a>
+															</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-998944d e-con-full e-flex e-con e-parent" data-id="998944d" data-element_type="container">
+				<div class="elementor-element elementor-element-e5fb9a2 elementor-hidden-widescreen elementor-hidden-desktop elementor-hidden-laptop elementor-widget elementor-widget-button" data-id="e5fb9a2" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="mentions-legales.html#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE4MTAiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">
+						<span class="elementor-button-content-wrapper">
+						<span class="elementor-button-icon">
+				<svg aria-hidden="true" class="e-font-icon-svg e-fas-bars" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg>			</span>
+								</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-3a3cb39 elementor-nav-menu__align-end elementor-widget__width-auto elementor-nav-menu--dropdown-tablet_extra elementor-nav-menu--stretch elementor-hidden-tablet_extra elementor-hidden-tablet elementor-hidden-mobile_extra elementor-hidden-mobile elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="3a3cb39" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;svg aria-hidden=\&quot;true\&quot; class=\&quot;e-font-icon-svg e-fas-caret-down\&quot; viewBox=\&quot;0 0 320 512\&quot; xmlns=\&quot;http:\/\/www.w3.org\/2000\/svg\&quot;&gt;&lt;path d=\&quot;M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z\&quot;&gt;&lt;\/path&gt;&lt;\/svg&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
+				<div class="elementor-widget-container">
+								<nav aria-label="Menu" class="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-underline e--animation-fade">
+				<ul id="menu-1-3a3cb39" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1367"><a href="https://green-nerds.io/qui-sommes-nous" class="elementor-item">Qui sommes-nous ?</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1366"><a href="https://green-nerds.io/nos-engagements" class="elementor-item">Nos engagements</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1365"><a href="https://green-nerds.io/nos-metiers" class="elementor-item">Nos métiers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1364"><a href="https://green-nerds.io/travailler-chez-nous" class="elementor-item">Travailler chez nous</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1363"><a href="https://green-nerds.io/veille-it" class="elementor-item">Veille IT</a></li>
+</ul>			</nav>
+					<div class="elementor-menu-toggle" role="button" tabindex="0" aria-label="Menu Toggle" aria-expanded="false">
+			<svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--open e-font-icon-svg e-eicon-menu-bar" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M104 333H896C929 333 958 304 958 271S929 208 896 208H104C71 208 42 237 42 271S71 333 104 333ZM104 583H896C929 583 958 554 958 521S929 458 896 458H104C71 458 42 487 42 521S71 583 104 583ZM104 833H896C929 833 958 804 958 771S929 708 896 708H104C71 708 42 737 42 771S71 833 104 833Z"></path></svg><svg aria-hidden="true" role="presentation" class="elementor-menu-toggle__icon--close e-font-icon-svg e-eicon-close" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg"><path d="M742 167L500 408 258 167C246 154 233 150 217 150 196 150 179 158 167 167 154 179 150 196 150 212 150 229 154 242 171 254L408 500 167 742C138 771 138 800 167 829 196 858 225 858 254 829L496 587 738 829C750 842 767 846 783 846 800 846 817 842 829 829 842 817 846 804 846 783 846 767 842 750 829 737L588 500 833 258C863 229 863 200 833 171 804 137 775 137 742 167Z"></path></svg>		</div>
+					<nav class="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
+				<ul id="menu-2-3a3cb39" class="elementor-nav-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1367"><a href="https://green-nerds.io/qui-sommes-nous" class="elementor-item" tabindex="-1">Qui sommes-nous ?</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1366"><a href="https://green-nerds.io/nos-engagements" class="elementor-item" tabindex="-1">Nos engagements</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1365"><a href="https://green-nerds.io/nos-metiers" class="elementor-item" tabindex="-1">Nos métiers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1364"><a href="https://green-nerds.io/travailler-chez-nous" class="elementor-item" tabindex="-1">Travailler chez nous</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1363"><a href="https://green-nerds.io/veille-it" class="elementor-item" tabindex="-1">Veille IT</a></li>
+</ul>			</nav>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-a3ecede elementor-align-right elementor-hidden-tablet_extra elementor-hidden-tablet elementor-hidden-mobile_extra elementor-hidden-mobile elementor-widget elementor-widget-button" data-id="a3ecede" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="mentions-legales.html#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE2NDYiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Echanger avec nous</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				</div>
+					</div>
+				</header>
+				</header>
+				<div  data-elementor-type="wp-page" data-elementor-id="66" class="elementor elementor-66" data-elementor-post-type="page">
+						<section  class="elementor-section elementor-top-section elementor-element elementor-element-b5fcad0 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="b5fcad0" data-element_type="section">
+						<div  class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-42f33ab" data-id="42f33ab" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-465ab8b elementor-widget elementor-widget-heading" data-id="465ab8b" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h1 class="elementor-heading-title elementor-size-default">Mentions légales</h1>				</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section  class="elementor-section elementor-top-section elementor-element elementor-element-5a0d126 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="5a0d126" data-element_type="section">
+						<div  class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-0df57f9" data-id="0df57f9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-15b5588 elementor-widget elementor-widget-text-editor" data-id="15b5588" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Merci de lire avec attention les différentes modalités d’utilisation du présent site avant d’y parcourir ses pages. En vous connectant sur ce site, vous acceptez, sans réserves, les présentes modalités.</p><h2>Responsables du site internet</h2><p>Aussi, conformément à l’article n°6 de la Loi n°2004-575 du 21 Juin 2004 pour la confiance dans l’économie numérique, les responsables du présent site internet <a class="website_url" href="https://green-nerds.io">https://green-nerds.io</a> sont :</p><p><strong>Éditeur du Site</strong></p><p>Green nerds , dont le numéro SIREN est 92153054900010, et le siège social est situé au 8 rue Pasteur 59350 Saint André Lez Lille.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-7c9e0eb elementor-list-item-link-inline elementor-align-center elementor-icon-list--layout-traditional elementor-widget elementor-widget-icon-list" data-id="7c9e0eb" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="tel:%5Bacf%20field=telephone%20post_id=options%5D">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">09 72 10 10 07</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="mailto:hello@green-nerds.io">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">hello@green-nerds.io</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://www.ovh.com/fr/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-globe-americas" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"></path></svg>						</span>
+										<span class="elementor-icon-list-text"><a class="website_url" href="https://green-nerds.io">https://green-nerds.io</a></span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-13cce42 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="13cce42" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-eb656cc" data-id="eb656cc" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-d6645b6 elementor-widget elementor-widget-text-editor" data-id="d6645b6" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><strong>Hébergement</strong></p><p><strong>La Quincaillerie</strong>, dont le numéro SIREN est 842 805 160, et le siège social est situé au 3 rue du Docteur Huart, 59800 Lille.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-6e91f56 elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6e91f56" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="tel:0972101007">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>						</span>
+										<span class="elementor-icon-list-text"> 09 72 62 83 05</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="mailto:bonjour@la-quincaillerie.fr">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>						</span>
+										<span class="elementor-icon-list-text"> bonjour@la-quincaillerie.fr</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://la-quincaillerie.fr/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-globe-americas" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"></path></svg>						</span>
+										<span class="elementor-icon-list-text"> https://la-quincaillerie.fr/</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-91aef56 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="91aef56" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-3a782b4" data-id="3a782b4" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-1270eb7 elementor-widget elementor-widget-text-editor" data-id="1270eb7" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p><strong>Conception du site internet</strong></p><p><strong>La Quincaillerie</strong>, dont le numéro SIREN est 842 805 160, et le siège social est situé au 3 rue du Docteur Huart, 59800 Lille.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-d8db85e elementor-align-center elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="d8db85e" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="tel:0972628305">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-phone-alt" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M497.39 361.8l-112-48a24 24 0 0 0-28 6.9l-49.6 60.6A370.66 370.66 0 0 1 130.6 204.11l60.6-49.6a23.94 23.94 0 0 0 6.9-28l-48-112A24.16 24.16 0 0 0 122.6.61l-104 24A24 24 0 0 0 0 48c0 256.5 207.9 464 464 464a24 24 0 0 0 23.4-18.6l24-104a24.29 24.29 0 0 0-14.01-27.6z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">09 72 62 83 05</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="mailto:bonjour@la-quincaillerie.fr">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-far-envelope" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">bonjour@la-quincaillerie.fr</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://la-quincaillerie.fr/">
+
+												<span class="elementor-icon-list-icon">
+							<svg aria-hidden="true" class="e-font-icon-svg e-fas-globe-americas" viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M248 8C111.03 8 0 119.03 0 256s111.03 248 248 248 248-111.03 248-248S384.97 8 248 8zm82.29 357.6c-3.9 3.88-7.99 7.95-11.31 11.28-2.99 3-5.1 6.7-6.17 10.71-1.51 5.66-2.73 11.38-4.77 16.87l-17.39 46.85c-13.76 3-28 4.69-42.65 4.69v-27.38c1.69-12.62-7.64-36.26-22.63-51.25-6-6-9.37-14.14-9.37-22.63v-32.01c0-11.64-6.27-22.34-16.46-27.97-14.37-7.95-34.81-19.06-48.81-26.11-11.48-5.78-22.1-13.14-31.65-21.75l-.8-.72a114.792 114.792 0 0 1-18.06-20.74c-9.38-13.77-24.66-36.42-34.59-51.14 20.47-45.5 57.36-82.04 103.2-101.89l24.01 12.01C203.48 89.74 216 82.01 216 70.11v-11.3c7.99-1.29 16.12-2.11 24.39-2.42l28.3 28.3c6.25 6.25 6.25 16.38 0 22.63L264 112l-10.34 10.34c-3.12 3.12-3.12 8.19 0 11.31l4.69 4.69c3.12 3.12 3.12 8.19 0 11.31l-8 8a8.008 8.008 0 0 1-5.66 2.34h-8.99c-2.08 0-4.08.81-5.58 2.27l-9.92 9.65a8.008 8.008 0 0 0-1.58 9.31l15.59 31.19c2.66 5.32-1.21 11.58-7.15 11.58h-5.64c-1.93 0-3.79-.7-5.24-1.96l-9.28-8.06a16.017 16.017 0 0 0-15.55-3.1l-31.17 10.39a11.95 11.95 0 0 0-8.17 11.34c0 4.53 2.56 8.66 6.61 10.69l11.08 5.54c9.41 4.71 19.79 7.16 30.31 7.16s22.59 27.29 32 32h66.75c8.49 0 16.62 3.37 22.63 9.37l13.69 13.69a30.503 30.503 0 0 1 8.93 21.57 46.536 46.536 0 0 1-13.72 32.98zM417 274.25c-5.79-1.45-10.84-5-14.15-9.97l-17.98-26.97a23.97 23.97 0 0 1 0-26.62l19.59-29.38c2.32-3.47 5.5-6.29 9.24-8.15l12.98-6.49C440.2 193.59 448 223.87 448 256c0 8.67-.74 17.16-1.82 25.54L417 274.25z"></path></svg>						</span>
+										<span class="elementor-icon-list-text">https://la-quincaillerie.fr/</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				<div class="elementor-element elementor-element-e95e995 elementor-widget elementor-widget-text-editor" data-id="e95e995" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<h2>Conditions d’utilisation</h2><p><strong>Confort d’utilisation</strong></p><p>Ce site est proposé en différents langages web (HTML, HTML5, Javascript, CSS, etc…) pour un meilleur confort d’utilisation et un graphisme plus agréable.<br />Nous vous recommandons de recourir à des navigateurs modernes comme Safari, Firefox, Google Chrome…</p><p><strong>Fiabilité des informations et responsabilité</strong></p><p>L’Éditeur met en œuvre tous les moyens dont elle dispose, pour assurer une information fiable et une mise à jour fiable de ses sites internet.</p><p>Toutefois, des erreurs ou omissions peuvent survenir. L’internaute devra donc s’assurer de l’exactitude des informations auprès de l’Éditeur, et signaler toutes modifications du site qu’il jugerait utile. L’Éditeur, l’Hébergeur et le Concepteur du site ne sont en aucun cas responsable de l’utilisation faite de ces informations, et de tout préjudice direct ou indirect pouvant en découler.</p><p>Tout contenu téléchargé se fait aux risques et périls de l’utilisateur et sous sa seule responsabilité. En conséquence, ne saurait être tenu responsable d’un quelconque dommage subi par l’ordinateur de l’utilisateur ou d’une quelconque perte de données consécutives au téléchargement.</p><p><strong>Liens hypertextes</strong></p><p>Les sites internet de peuvent offrir des liens vers d’autres sites internet ou d’autres ressources disponibles sur Internet. L’Éditeur ne dispose d’aucun moyen pour contrôler les sites en connexion avec ses sites internet.</p><p>L’Éditeur ne répond pas de la disponibilité de tels sites et sources externes, ni ne la garantit. Elle ne peut être tenue pour responsable de tout dommage, de quelque nature que ce soit, résultant du contenu de ces sites ou sources externes, et notamment des informations, produits ou services qu’ils proposent, ou de tout usage qui peut être fait de ces éléments. Les risques liés à cette utilisation incombent pleinement à l’internaute, qui doit se conformer à leurs conditions d’utilisation.</p><p>Les utilisateurs, les abonnés et les visiteurs des sites internet ne peuvent pas mettre en place un hyperlien en direction de ce site sans l’autorisation expresse et préalable de L’Éditeur.</p><p>Dans l’hypothèse où un utilisateur ou visiteur souhaiterait mettre en place un hyperlien en direction d’un des sites internet de L’Éditeur, il lui appartiendrait d’adresser un email accessible sur le site afin de formuler sa demande de mise en place d’un hyperlien.</p><p>L’Éditeur se réserve le droit d’accepter ou de refuser un hyperlien sans avoir à en justifier sa décision.</p><p><strong>Services fournis</strong></p><p>L’ensemble des activités de la société ainsi que ses informations sont présentés sur notre site.</p><p>L’Éditeur s’efforce de fournir sur le site des informations aussi précises que possible. Les renseignements figurant sur le site ne sont pas exhaustifs et les photos non contractuelles.</p><p>Ils sont donnés sous réserve de modifications ayant été apportées depuis leur mise en ligne. Par ailleurs, toutes les informations indiquées sur le site sont données à titre indicatif, et sont susceptibles de changer ou d’évoluer sans préavis.</p><p><strong>Propriété intellectuelle</strong></p><p>Tout le contenu du présent site, incluant, de façon non limitative, les graphismes, images, textes, vidéos, animations, sons, logos, gifs et icônes ainsi que leur mise en forme sont la propriété exclusive de la société à l’exception des marques, logos ou contenus appartenant à d’autres sociétés partenaires ou auteurs.</p><p>Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l’accord exprès par écrit de l’Éditeur. Cette représentation ou reproduction, par quelque procédé que ce soit, constitue une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle. Le non-respect de cette interdiction constitue une contrefaçon pouvant engager la responsabilité civile et pénale du contrefacteur. En outre, les propriétaires des Contenus copiés pourraient intenter une action en justice à votre encontre.</p><p><strong>Données personnelles</strong></p><p>De manière générale, vous n’êtes pas tenu de nous communiquer vos données personnelles lorsque vous visitez notre site Internet.</p><p>Cependant, ce principe comporte certaines exceptions. En effet, pour certains services proposés par notre site, vous pouvez être amenés à nous communiquer certaines données telles que : votre nom, votre fonction, le nom de votre société, votre adresse électronique, et votre numéro de téléphone. Tel est le cas lorsque vous remplissez le formulaire qui vous est proposé sur certaine(s) page(s) du site.</p><p>Dans tous les cas, vous pouvez refuser de fournir vos données personnelles en ne complétant pas le formulaire. Dans ce cas, vous ne pourrez pas utiliser les services du site, notamment celui de solliciter des renseignements sur notre société, ou de recevoir les lettres d’information par exemple.</p><p>Enfin, nous pouvons collecter de manière automatique certaines informations vous concernant lors d’une simple navigation sur notre site internet, notamment : des informations concernant l’utilisation de notre site, comme les zones que vous visitez et les services auxquels vous accédez, votre adresse IP, le type de votre navigateur, vos temps d’accès.</p><p>De telles informations sont utilisées exclusivement à des fins de statistiques internes, de manière à améliorer la qualité des services qui vous sont proposés. Les bases de données sont protégées par les dispositions de la loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.</p><p>Nous vous invitons à découvrir notre politique de confidentialité <a href="https://green-nerds.io/politique-de-confidentialite">disponible ici</a>.</p><p><strong>Litiges</strong></p><p>Les présentes conditions du site sont régies par les lois françaises et toute contestation ou litiges qui pourraient naître de l’interprétation ou de l’exécution de celles-ci seront de la compétence exclusive des tribunaux dont dépend le siège social de la société. La langue de référence, pour le règlement de contentieux éventuels, est le français.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+				</div>
+				<footer data-elementor-type="footer" data-elementor-id="209" class="elementor elementor-209 elementor-location-footer" data-elementor-post-type="elementor_library">
+			<div class="elementor-element elementor-element-5c9042f e-flex e-con-boxed e-con e-parent" data-id="5c9042f" data-element_type="container">
+					<div  class="e-con-inner">
+		<div class="elementor-element elementor-element-8eb7289 e-con-full e-flex e-con e-parent" data-id="8eb7289" data-element_type="container">
+		<div class="elementor-element elementor-element-9b135f4 e-flex e-con-boxed e-con e-parent" data-id="9b135f4" data-element_type="container">
+					<div  class="e-con-inner">
+				<div class="elementor-element elementor-element-b646a4c elementor-widget elementor-widget-heading" data-id="b646a4c" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h3 class="elementor-heading-title elementor-size-default">Suivez-nous sur Linkedin</h3>				</div>
+				</div>
+		<div class="elementor-element elementor-element-be8d0e2 e-flex e-con-boxed e-con e-parent" data-id="be8d0e2" data-element_type="container">
+					<div  class="e-con-inner">
+				<div class="elementor-element elementor-element-891cdba elementor-view-default elementor-widget elementor-widget-icon" data-id="891cdba" data-element_type="widget" data-widget_type="icon.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-icon-wrapper">
+			<a class="elementor-icon" href="https://www.linkedin.com/company/esn-green-nerds/">
+			<svg aria-hidden="true" class="e-font-icon-svg e-fab-linkedin" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>			</a>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-751d220 elementor-widget elementor-widget-heading" data-id="751d220" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<span class="elementor-heading-title elementor-size-default"><a href="https://www.linkedin.com/company/esn-green-nerds/">@greennerds</a></span>				</div>
+				</div>
+					</div>
+				</div>
+					</div>
+				</div>
+		<a class="elementor-element elementor-element-a838526 e-flex e-con-boxed e-con e-parent" data-id="a838526" data-element_type="container" href="https://green-nerds.io">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-2de661c elementor-widget__width-initial elementor-widget elementor-widget-html" data-id="2de661c" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 108 53" fill="none"><path d="M-2.39687e-05 6.21424V19.3279C-2.39687e-05 19.8276 0.408574 20.2892 0.91182 20.3548C2.07913 20.5082 2.66318 20.5784 3.83049 20.7065C4.3345 20.7615 4.74233 20.3991 4.74233 19.8993V7.78058C4.74233 7.28085 5.15093 6.91844 5.65418 6.96727C8.17656 7.19463 10.6966 7.37622 13.2252 7.51507C13.7292 7.54025 14.137 7.15267 14.137 6.65294V3.75905C14.137 3.25932 13.7292 2.8374 13.2252 2.81223C9.10148 2.58563 5.00858 2.23162 0.91105 1.72425C0.407035 1.65864 -0.000793457 2.00655 -0.000793457 2.50628V6.21424H-2.39687e-05Z" fill="white"/><path d="M9.39542 25.9143C10.9282 26.0249 11.6939 26.0707 13.2267 26.1462C13.7307 26.1707 14.1385 25.7838 14.1385 25.2841V13.0746C14.1385 12.5748 13.7299 12.1529 13.2267 12.1277C12.0594 12.0705 11.4753 12.0369 10.308 11.9591C9.80402 11.9255 9.39619 12.3009 9.39619 12.8007V20.3074C9.39619 20.8071 8.98759 21.1825 8.48434 21.1436C7.35319 21.0551 6.78762 21.0055 5.65647 20.8964C5.15246 20.8475 4.74463 21.2099 4.74463 21.7097V24.6036C4.74463 25.1033 5.15246 25.5504 5.65647 25.5992C7.15236 25.7442 7.9003 25.8067 9.39619 25.9151" fill="white"/><path d="M79.9052 1.12832V3.93142C79.9052 4.43115 79.4966 4.84467 78.9934 4.85688C77.826 4.88587 77.242 4.90342 76.0747 4.94309C75.5707 4.96064 75.1628 5.38103 75.1628 5.88V22.7016C75.1628 23.2013 75.5707 23.5905 76.0747 23.5737C77.2428 23.5332 77.826 23.5157 78.9934 23.4875C79.4974 23.4745 79.906 23.0617 79.906 22.562V5.83117C79.906 5.33144 80.3146 4.91792 80.8178 4.90876C81.949 4.88892 82.5145 4.88129 83.6457 4.87366C84.1497 4.87061 84.5575 5.27422 84.5575 5.77395V22.5963C84.5575 23.0953 84.9661 23.4989 85.4694 23.4997C86.6367 23.5012 87.2207 23.5058 88.388 23.5233C88.8921 23.5309 89.2999 23.1342 89.2999 22.6345V1.10925C89.2999 0.609515 88.8921 0.196757 88.388 0.189128C85.8634 0.16395 83.3417 0.170054 80.817 0.205913C80.313 0.215068 79.9052 0.628589 79.9052 1.12832Z" fill="white"/><path d="M83.7364 26.5789C81.2117 26.6056 78.6894 26.659 76.1654 26.7368C75.6614 26.7544 75.2536 27.1747 75.2536 27.6737V49.1989C75.2536 49.6987 75.6622 50.0878 76.1654 50.071C77.3328 50.0313 77.9168 50.0138 79.0841 49.9848C79.4489 49.9756 79.6312 49.9718 79.996 49.9642C81.4918 49.9329 82.2398 49.9214 83.7357 49.9123C84.2397 49.9092 84.6483 49.5034 84.6475 49.0036V46.1097C84.6475 45.61 84.2389 45.2056 83.7357 45.2094C82.6045 45.2163 82.0389 45.2232 80.9078 45.243C80.4038 45.2522 79.996 44.8562 79.996 44.3565V32.2369C79.996 31.7372 80.4038 31.3237 80.9078 31.3145C82.0389 31.2947 82.6045 31.2878 83.7357 31.281C84.2397 31.2779 84.6475 31.6823 84.6475 32.1812V44.3008C84.6475 44.8005 85.0561 45.2041 85.5594 45.2049C86.7274 45.2072 87.3107 45.2117 88.478 45.23C88.982 45.2377 89.3899 44.8409 89.3899 44.342V32.1324C89.3899 31.6327 88.9813 31.2199 88.478 31.2115C87.3107 31.1932 86.7267 31.1886 85.5594 31.1871C85.0553 31.1864 84.6475 30.7828 84.6475 30.283V27.4792C84.6475 26.9794 84.2389 26.5758 83.7357 26.5789" fill="#87E191"/><path d="M22.6214 33.968C21.4541 33.9673 20.8701 33.9627 19.7027 33.9459C19.1987 33.9383 18.7909 34.3358 18.7909 34.8348V51.6571C18.7909 52.1569 19.1995 52.5696 19.7027 52.5765C20.8701 52.5933 21.4541 52.5978 22.6214 52.5986C23.1254 52.5986 23.5332 52.1927 23.5332 51.693V34.9614C23.5332 34.4617 23.9418 34.0558 24.4451 34.052C25.5762 34.0443 26.1418 34.0367 27.273 34.0161C27.777 34.007 28.1856 34.4029 28.1856 34.9027V51.725C28.1856 52.2248 28.5934 52.6207 29.0974 52.6085C30.2647 52.5795 30.8488 52.5612 32.0161 52.5208C32.5201 52.5032 32.9279 52.0829 32.9279 51.5839V30.0579C32.9279 29.5582 32.5201 29.1691 32.0161 29.1866C29.4922 29.266 26.9698 29.3217 24.4451 29.3499C23.9411 29.3537 23.5332 29.7596 23.5332 30.2593V33.0632C23.5332 33.5629 23.1247 33.9688 22.6214 33.9688" fill="#87E191"/><path d="M37.6726 7.23882V25.1461C37.6726 25.6458 38.0812 26.0304 38.5845 26.0037C39.7887 25.9411 40.3904 25.9068 41.5947 25.8373C41.9233 25.8183 42.0872 25.8084 42.4157 25.7893C45.2444 25.6191 48.0715 25.4337 50.8986 25.2392C51.4026 25.2049 51.8104 24.7715 51.8104 24.2725V21.3786C51.8104 20.8789 51.4018 20.5028 50.8986 20.5371C48.3754 20.7088 45.8523 20.8743 43.3276 21.0323C42.8236 21.0628 42.4157 20.6828 42.4157 20.1831V17.2892C42.4157 16.7895 42.8243 16.3607 43.3276 16.3294C44.4949 16.2585 45.0789 16.2211 46.2462 16.1455C46.7503 16.1127 47.1581 15.6809 47.1581 15.1812V12.2873C47.1581 11.7876 46.7495 11.4099 46.2462 11.4427C45.0789 11.5182 44.4949 11.5549 43.3276 11.6266C42.8236 11.6571 42.4157 11.2764 42.4157 10.7774V7.97354C42.4157 7.47381 42.8243 7.04503 43.3276 7.01375C45.8515 6.85658 48.3754 6.69026 50.8986 6.51859C51.4026 6.48426 51.8104 6.0509 51.8104 5.55193V2.65728C51.8104 2.15755 51.4026 1.78065 50.8986 1.81574C46.7949 2.09422 42.6912 2.35744 38.5845 2.58022C38.0804 2.60616 37.6726 3.03189 37.6726 3.53086V7.23882Z" fill="white"/><path d="M37.581 33.4714V51.3787C37.581 51.8784 37.9896 52.2629 38.4928 52.237C40.0257 52.1576 40.7913 52.1141 42.3241 52.0226V51.9318C45.1528 51.7624 47.9799 51.577 50.807 51.3825C51.311 51.3481 51.7188 50.9148 51.7188 50.4158C51.7188 49.2584 51.7188 48.6793 51.7188 47.5219C51.7188 47.0222 51.311 46.6461 50.807 46.6804C48.2838 46.8513 45.7599 47.0176 43.236 47.1748C42.7319 47.2053 42.3241 46.8246 42.3241 46.3249V43.521C42.3241 43.0213 42.7327 42.5925 43.236 42.562C44.4033 42.491 44.9873 42.4536 46.1546 42.3781C46.6586 42.3453 47.0665 41.9134 47.0665 41.4145V38.5198C47.0665 38.0201 46.6579 37.6424 46.1546 37.6752C44.9873 37.7508 44.4033 37.7874 43.236 37.8591C42.7319 37.8896 42.3241 37.5089 42.3241 37.0092V34.2053C42.3241 33.7056 42.7327 33.2768 43.236 33.2463C45.7599 33.0891 48.2838 32.9236 50.807 32.7519C51.311 32.7176 51.7188 32.2842 51.7188 31.7852V28.8913C51.7188 28.3916 51.3102 28.0147 50.807 28.049C46.7033 28.3275 42.5996 28.59 38.4928 28.812C37.9888 28.8379 37.581 29.2637 37.581 29.7626V33.4706V33.4714Z" fill="#87E191"/><path d="M61.1143 24.5426C63.9406 24.358 66.7685 24.1832 69.5971 24.0375C70.1011 24.0116 70.509 23.5866 70.509 23.0869V20.1922C70.509 19.6925 70.1011 19.308 69.5971 19.3339C67.0724 19.4705 64.5493 19.62 62.0261 19.7795C61.5221 19.8115 61.1143 19.4338 61.1143 18.9341V16.0402C61.1143 15.5405 61.5229 15.1087 62.0261 15.0766C63.1934 15.0011 63.7775 14.9645 64.9448 14.8935C65.4488 14.863 65.8566 14.4342 65.8566 13.9345V11.0406C65.8566 10.5409 65.448 10.1601 64.9448 10.1907C63.7775 10.2616 63.1934 10.2982 62.0261 10.3738C61.5221 10.4058 61.1143 10.0282 61.1143 9.52842V6.72456C61.1143 6.22483 61.5229 5.79299 62.0261 5.76095C64.5493 5.60149 67.0724 5.45195 69.5971 5.31538C70.1011 5.28944 70.509 4.86372 70.509 4.36474V1.47162C70.509 0.971888 70.1004 0.587359 69.5971 0.6133C65.4904 0.834556 61.3867 1.09701 57.283 1.37473C56.779 1.40906 56.3712 1.84242 56.3712 2.34139V23.9582C56.3712 24.4579 56.7798 24.834 57.283 24.7997C58.4872 24.7173 59.089 24.6769 60.2932 24.5968C60.6218 24.5746 60.7857 24.5639 61.1143 24.5426Z" fill="white"/><path d="M93.8614 31.2795V35.1683C93.8614 35.668 94.27 36.0899 94.7733 36.1151C95.9406 36.1723 96.5246 36.2059 97.6919 36.2837C98.1959 36.3173 98.6038 36.7522 98.6038 37.2519V40.0558C98.6038 40.5555 99.0124 40.9896 99.5156 41.0293C100.647 41.1178 101.212 41.1666 102.343 41.2765C102.848 41.3253 103.255 41.7732 103.255 42.2722V45.076C103.255 45.575 102.847 45.9381 102.343 45.8886C99.8211 45.6612 97.301 45.4796 94.7725 45.3408C94.2685 45.3156 93.8607 45.7032 93.8607 46.2029V49.0968C93.8607 49.5965 94.2693 50.0192 94.7725 50.0436C97.6042 50.1863 100.435 50.3862 103.255 50.683C104.788 50.8417 105.554 50.9309 107.087 51.1316C107.591 51.198 107.998 50.8493 107.998 50.3503V38.1408C107.998 37.641 107.59 37.1794 107.087 37.1138C105.554 36.9132 104.788 36.8239 103.255 36.6652C101.759 36.5103 101.012 36.4432 99.5156 36.3265C99.0116 36.2868 98.6038 35.8527 98.6038 35.3529V32.5491C98.6038 32.0493 99.0124 31.674 99.5156 31.7129C102.046 31.928 104.566 32.189 107.087 32.5002C107.591 32.5666 107.998 32.2179 107.998 31.719V28.8251C107.998 28.3254 107.59 27.8638 107.087 27.7974C102.988 27.29 98.8954 26.936 94.7725 26.7094C94.2685 26.6842 93.8607 27.0718 93.8607 27.5716V31.2795H93.8614Z" fill="#87E191"/><path d="M27.2737 17.0139C26.1425 17.0345 25.577 17.0421 24.4458 17.0498C23.9418 17.0536 23.534 16.6492 23.534 16.1502V8.64353C23.534 8.1438 23.9426 7.73791 24.4458 7.73409C25.577 7.72646 26.1425 7.71883 27.2737 7.69823C27.7777 7.68908 28.1855 8.08505 28.1855 8.58479V16.0915C28.1855 16.5912 27.7769 17.0047 27.2737 17.0139ZM18.7908 7.61202V25.5193C18.7908 26.0191 19.1994 26.4318 19.7027 26.4387C20.87 26.4555 21.454 26.46 22.6214 26.4608C23.1254 26.4608 23.5332 26.0549 23.5332 25.5552V22.6613C23.5332 22.1616 23.9418 21.7557 24.445 21.7518C25.5762 21.7442 26.1418 21.7366 27.2729 21.716C27.7769 21.7068 28.1848 22.1028 28.1848 22.6018V25.4056C28.1848 25.9054 28.5934 26.3013 29.0966 26.2891C30.2639 26.2601 30.848 26.2418 32.0153 26.2014C32.5193 26.1838 32.9271 25.7635 32.9271 25.2645V22.3706C32.9271 21.8709 32.5185 21.4818 32.0153 21.4993C30.8841 21.5382 30.3186 21.5558 29.1874 21.5848C28.6834 21.5977 28.2756 21.2018 28.2756 20.702V17.8982C28.2756 17.3984 28.6842 16.9849 29.1874 16.9719C30.3186 16.9429 30.8841 16.9262 32.0153 16.8865C32.5193 16.8689 32.9271 16.4486 32.9271 15.9488V3.74003C32.9271 3.24029 32.5185 2.85119 32.0153 2.86873C27.9093 2.99844 23.8094 3.05566 19.7012 3.01522C19.1971 3.00759 18.7893 3.40509 18.7893 3.90406V7.61202H18.7908Z" fill="white"/><path d="M64.9456 41.2131C63.8144 41.2817 63.2488 41.3168 62.1177 41.3901C61.6137 41.4221 61.2058 41.0444 61.2058 40.5447V33.038C61.2058 32.5383 61.6144 32.1064 62.1177 32.0744C63.2488 32.0019 63.8144 31.9661 64.9456 31.8974C65.4496 31.8669 65.8574 32.2476 65.8574 32.7473V40.254C65.8574 40.7538 65.4496 41.1825 64.9456 41.2131ZM56.4627 32.3628V50.2701C56.4627 50.7698 56.8713 51.146 57.3746 51.1116C58.5426 51.0323 59.1259 50.9926 60.2932 50.9148C60.7972 50.8812 61.2051 50.4501 61.2051 49.9504V47.0565C61.2051 46.5568 61.6137 46.125 62.1169 46.0929C63.2481 46.0197 63.8136 45.9846 64.9448 45.9159C65.4488 45.8854 65.8566 46.2661 65.8566 46.7658V49.5697C65.8566 50.0694 66.2652 50.4501 66.7685 50.4212C67.9358 50.354 68.5198 50.322 69.6871 50.2617C70.1912 50.2358 70.599 49.8108 70.599 49.3111V46.4172C70.599 45.9174 70.1904 45.5329 69.6871 45.5588C68.556 45.6168 67.9904 45.6481 66.8593 45.713C66.3553 45.742 65.9474 45.3612 65.9474 44.8615V42.0576C65.9474 41.5587 66.356 41.1291 66.8593 41.1001C67.9904 41.0353 68.556 41.004 69.6871 40.946C70.1912 40.9201 70.599 40.4951 70.599 39.9954C70.599 37.1915 70.599 34.3877 70.599 31.5846V27.7858C70.599 27.2861 70.1904 26.9016 69.6871 26.9275C65.5804 27.148 61.4767 27.4097 57.373 27.6874C56.869 27.7217 56.4612 28.1543 56.4612 28.6541V32.362L56.4627 32.3628Z" fill="#87E191"/></svg>				</div>
+				</div>
+					</div>
+				</a>
+		<div class="elementor-element elementor-element-7844241 e-flex e-con-boxed e-con e-parent" data-id="7844241" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-e61efcb elementor-align-right btn_1 elementor-mobile-align-left elementor-widget elementor-widget-button" data-id="e61efcb" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="mentions-legales.html#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE2NDYiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Échanger avec nous</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+				<div class="elementor-element elementor-element-c8fafe2 elementor-align-right elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="c8fafe2" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/qui-sommes-nous">
+
+											<span class="elementor-icon-list-text">Qui sommes-nous ?</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/nos-engagements">
+
+											<span class="elementor-icon-list-text">Nos engagements</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/nos-metiers">
+
+											<span class="elementor-icon-list-text">Nos métiers</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/travailler-chez-nous">
+
+											<span class="elementor-icon-list-text">Travailler chez nous</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/veille-it">
+
+											<span class="elementor-icon-list-text">Veille IT</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		<div class="elementor-element elementor-element-df3686e e-con-full e-flex e-con e-parent" data-id="df3686e" data-element_type="container">
+				<div class="elementor-element elementor-element-4fc7b73 elementor-icon-list--layout-inline elementor-align-center elementor-mobile-align-center elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="4fc7b73" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items elementor-inline-items">
+							<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://green-nerds.io/sitemap">
+
+											<span class="elementor-icon-list-text">Plan de site</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="mentions-legales.html">
+
+											<span class="elementor-icon-list-text">Mentions légales</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://green-nerds.io/politique-de-confidentialite">
+
+											<span class="elementor-icon-list-text">Politique de confidentialité</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item elementor-inline-item">
+											<a href="https://la-quincaillerie.fr" target="_blank" rel="nofollow">
+
+											<span class="elementor-icon-list-text">Site réalisé par La Quincaillerie</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				</div>
+					</div>
+				</div>
+				</footer>
+		
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/la-quincaillerie-child\/*","\/wp-content\/themes\/la-quincaillerie\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+		<div data-elementor-type="popup" data-elementor-id="1810" class="elementor elementor-1810 elementor-location-popup" data-elementor-settings="{&quot;entrance_animation&quot;:&quot;fadeInLeft&quot;,&quot;exit_animation&quot;:&quot;fadeInLeft&quot;,&quot;entrance_animation_duration&quot;:{&quot;unit&quot;:&quot;px&quot;,&quot;size&quot;:0.2,&quot;sizes&quot;:[]},&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+			<div  class="elementor-element elementor-element-869c45f e-flex e-con-boxed e-con e-parent" data-id="869c45f" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-54fb1a3 elementor-widget elementor-widget-image" data-id="54fb1a3" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img width="108" height="53" src="wp-content/uploads/2021/07/Group-27.svg" class="attachment-large size-large wp-image-1094" alt="group (27)" />															</div>
+				</div>
+				<div class="elementor-element elementor-element-6e720b7 elementor-align-left elementor-mobile-align-left elementor-icon-list--layout-traditional elementor-list-item-link-full_width elementor-widget elementor-widget-icon-list" data-id="6e720b7" data-element_type="widget" data-widget_type="icon-list.default">
+				<div class="elementor-widget-container">
+							<ul class="elementor-icon-list-items">
+							<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/qui-sommes-nous">
+
+											<span class="elementor-icon-list-text">Qui sommes-nous ?</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/nos-engagements">
+
+											<span class="elementor-icon-list-text">Nos engagements</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/nos-metiers">
+
+											<span class="elementor-icon-list-text">Nos métiers</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/travailler-chez-nous">
+
+											<span class="elementor-icon-list-text">Travailler chez nous</span>
+											</a>
+									</li>
+								<li class="elementor-icon-list-item">
+											<a href="https://green-nerds.io/veille-it">
+
+											<span class="elementor-icon-list-text">Veille IT</span>
+											</a>
+									</li>
+						</ul>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-e36446e elementor-align-left btn_1 elementor-mobile-align-left elementor-widget elementor-widget-button" data-id="e36446e" data-element_type="widget" data-widget_type="button.default">
+				<div class="elementor-widget-container">
+									<div class="elementor-button-wrapper">
+					<a class="elementor-button elementor-button-link elementor-size-sm" href="mentions-legales.html#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6IjE2NDYiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D">
+						<span class="elementor-button-content-wrapper">
+									<span class="elementor-button-text">Échanger avec nous</span>
+					</span>
+					</a>
+				</div>
+								</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				<div data-elementor-type="popup" data-elementor-id="1646" class="elementor elementor-1646 elementor-location-popup" data-elementor-settings="{&quot;prevent_scroll&quot;:&quot;yes&quot;,&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+			<div  class="elementor-element elementor-element-43940d5 e-flex e-con-boxed e-con e-parent" data-id="43940d5" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-9abbcb0 elementor-widget elementor-widget-heading" data-id="9abbcb0" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default"><span class="vert_underline">Échanger</span> <br>avec nous</h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-73fce55 elementor-widget elementor-widget-text-editor" data-id="73fce55" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Vous souhaitez faire appel aux Green Nerds ? Contactez-nous dès maintenant pour en savoir plus.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-2fbd1f8 elementor-button-align-center elementor-widget elementor-widget-form" data-id="2fbd1f8" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" id="contact" name="New Form" aria-label="New Form">
+			<input type="hidden" name="post_id" value="1646"/>
+			<input type="hidden" name="form_id" value="2fbd1f8"/>
+			<input type="hidden" name="referer_title" value="Qui sommes-nous ?" />
+
+							<input type="hidden" name="queried_id" value="1150"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50 elementor-field-required">
+												<label for="form-field-name" class="elementor-field-label">
+								Prénom							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Prénom" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_2e45917 elementor-col-50 elementor-field-required">
+												<label for="form-field-field_2e45917" class="elementor-field-label">
+								Nom							</label>
+														<input size="1" type="text" name="form_fields[field_2e45917]" id="form-field-field_2e45917" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Nom" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_38b5e1e elementor-col-100 elementor-field-required">
+												<label for="form-field-field_38b5e1e" class="elementor-field-label">
+								Société							</label>
+														<input size="1" type="text" name="form_fields[field_38b5e1e]" id="form-field-field_38b5e1e" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Société" required="required">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
+												<label for="form-field-email" class="elementor-field-label">
+								Téléphone							</label>
+								<input size="1" type="tel" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Téléphone" required="required" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+
+						</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-field_1373956 elementor-col-100 elementor-field-required">
+												<label for="form-field-field_1373956" class="elementor-field-label">
+								Email							</label>
+														<input size="1" type="email" name="form_fields[field_1373956]" id="form-field-field_1373956" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Email" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_ff68061 elementor-col-100">
+												<label for="form-field-field_ff68061" class="elementor-field-label">
+								Objet							</label>
+														<input size="1" type="text" name="form_fields[field_ff68061]" id="form-field-field_ff68061" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Objet">
+											</div>
+								<div class="elementor-field-type-textarea elementor-field-group elementor-column elementor-field-group-field_73cdaea elementor-col-100">
+												<label for="form-field-field_73cdaea" class="elementor-field-label">
+								Message							</label>
+						<textarea class="elementor-field-textual elementor-field  elementor-size-sm" name="form_fields[field_73cdaea]" id="form-field-field_73cdaea" rows="4" placeholder="Message"></textarea>				</div>
+								<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-message elementor-col-100 elementor-field-required">
+							<div class="elementor-field-subgroup">
+			<span class="elementor-field-option">
+				<input type="checkbox" name="form_fields[message]" id="form-field-message" class="elementor-field elementor-size-sm  elementor-acceptance-field" required="required">
+				<label for="form-field-message">En cochant cette case j'accepte la politique de confidentialité du site internet </label>			</span>
+		</div>
+						</div>
+								<div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_5f82154 elementor-col-100 recaptcha_v3-bottomright">
+					<div class="elementor-field" id="form-field-field_5f82154"><div class="elementor-g-recaptcha" data-sitekey="6LcsKl4kAAAAAI0WozJagpM78M669_PWzO2dzfiG" data-type="v3" data-action="Form" data-badge="bottomright" data-size="invisible"></div></div>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Envoyer</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+					</div>
+				</div>
+				</div>
+				<div data-elementor-type="popup" data-elementor-id="1636" class="elementor elementor-1636 elementor-location-popup" data-elementor-settings="{&quot;open_selector&quot;:&quot;a[href=\&quot;#link-popup\&quot;]&quot;,&quot;prevent_scroll&quot;:&quot;yes&quot;,&quot;a11y_navigation&quot;:&quot;yes&quot;,&quot;triggers&quot;:[],&quot;timing&quot;:[]}" data-elementor-post-type="elementor_library">
+			<div  class="elementor-element elementor-element-ef31dcc e-flex e-con-boxed e-con e-parent" data-id="ef31dcc" data-element_type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-b153e3d elementor-widget elementor-widget-heading" data-id="b153e3d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+					<h2 class="elementor-heading-title elementor-size-default">Join the <span class="vert_underline">green side</span></h2>				</div>
+				</div>
+				<div class="elementor-element elementor-element-c992c7c elementor-widget elementor-widget-text-editor" data-id="c992c7c" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p>Vous voulez rejoindre l’ESN active écologiquement ? Nous sommes constamment à la recherche de nouveaux talents pour rejoindre notre communauté IT. Postulez dès maintenant.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-85f1e05 elementor-button-align-center elementor-widget elementor-widget-form" data-id="85f1e05" data-element_type="widget" data-settings="{&quot;step_next_label&quot;:&quot;Next&quot;,&quot;step_previous_label&quot;:&quot;Previous&quot;,&quot;button_width&quot;:&quot;100&quot;,&quot;step_type&quot;:&quot;number_text&quot;,&quot;step_icon_shape&quot;:&quot;circle&quot;}" data-widget_type="form.default">
+				<div class="elementor-widget-container">
+							<form class="elementor-form" method="post" id="postuler" name="New Form" aria-label="New Form">
+			<input type="hidden" name="post_id" value="1636"/>
+			<input type="hidden" name="form_id" value="85f1e05"/>
+			<input type="hidden" name="referer_title" value="Qui sommes-nous ?" />
+
+							<input type="hidden" name="queried_id" value="1150"/>
+			
+			<div class="elementor-form-fields-wrapper elementor-labels-above">
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-name elementor-col-50 elementor-field-required">
+												<label for="form-field-name" class="elementor-field-label">
+								Prénom							</label>
+														<input size="1" type="text" name="form_fields[name]" id="form-field-name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Prénom" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_2e45917 elementor-col-50 elementor-field-required">
+												<label for="form-field-field_2e45917" class="elementor-field-label">
+								Nom							</label>
+														<input size="1" type="text" name="form_fields[field_2e45917]" id="form-field-field_2e45917" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Nom" required="required">
+											</div>
+								<div class="elementor-field-type-tel elementor-field-group elementor-column elementor-field-group-email elementor-col-100 elementor-field-required">
+												<label for="form-field-email" class="elementor-field-label">
+								Téléphone							</label>
+								<input size="1" type="tel" name="form_fields[email]" id="form-field-email" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Téléphone" required="required" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+
+						</div>
+								<div class="elementor-field-type-email elementor-field-group elementor-column elementor-field-group-field_1373956 elementor-col-100 elementor-field-required">
+												<label for="form-field-field_1373956" class="elementor-field-label">
+								Email							</label>
+														<input size="1" type="email" name="form_fields[field_1373956]" id="form-field-field_1373956" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Email" required="required">
+											</div>
+								<div class="elementor-field-type-text elementor-field-group elementor-column elementor-field-group-field_38b5e1e elementor-col-100">
+												<label for="form-field-field_38b5e1e" class="elementor-field-label">
+								Poste convoité							</label>
+														<input size="1" type="text" name="form_fields[field_38b5e1e]" id="form-field-field_38b5e1e" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="Poste convoité">
+											</div>
+								<div class="elementor-field-type-upload elementor-field-group elementor-column elementor-field-group-field_23d8705 elementor-col-100">
+												<label for="form-field-field_23d8705" class="elementor-field-label">
+								Joindre un CV							</label>
+								<input type="file" name="form_fields[field_23d8705]" id="form-field-field_23d8705" class="elementor-field elementor-size-sm  elementor-upload-field">
+
+						</div>
+								<div class="elementor-field-type-acceptance elementor-field-group elementor-column elementor-field-group-message elementor-col-100 elementor-field-required">
+							<div class="elementor-field-subgroup">
+			<span class="elementor-field-option">
+				<input type="checkbox" name="form_fields[message]" id="form-field-message" class="elementor-field elementor-size-sm  elementor-acceptance-field" required="required">
+				<label for="form-field-message">En cochant cette case j'accepte la politique de confidentialité du site internet </label>			</span>
+		</div>
+						</div>
+								<div class="elementor-field-type-recaptcha_v3 elementor-field-group elementor-column elementor-field-group-field_5f82154 elementor-col-100 recaptcha_v3-bottomright">
+					<div class="elementor-field" id="form-field-field_5f82154"><div class="elementor-g-recaptcha" data-sitekey="6LcsKl4kAAAAAI0WozJagpM78M669_PWzO2dzfiG" data-type="v3" data-action="Form" data-badge="bottomright" data-size="invisible"></div></div>				</div>
+								<div class="elementor-field-group elementor-column elementor-field-type-submit elementor-col-100 e-form__buttons">
+					<button class="elementor-button elementor-size-sm" type="submit">
+						<span class="elementor-button-content-wrapper">
+																						<span class="elementor-button-text">Envoyer</span>
+													</span>
+					</button>
+				</div>
+			</div>
+		</form>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-4051120 elementor-widget elementor-widget-html" data-id="4051120" data-element_type="widget" data-widget_type="html.default">
+				<div class="elementor-widget-container">
+					<script type="rocketlazyloadscript">
+    /* On récupere toutes les inputs file elementor */
+    var inputs = document.querySelectorAll( '.elementor-upload-field' );
+    
+    /* On boucle dessus pour afficher un text par défaut */
+    inputs.forEach((input) => {
+        input.setAttribute('data-before', '  Joindre un fichier');
+    })
+    
+    /* Pour chaque input */
+    inputs.forEach((input) => {
+        /* On écoute l'event pour savoir lorsqu'un fichier est upload */
+        input.addEventListener('change', function(e) {
+            /* On récupère le chemin du fichier complet */
+            var path = input.value;
+            /* On coupe le chemin à chaque \ pour ne récupérer que la dernier 
+            partie ; le nom du fichier */
+			fileName = path.split( '\\' ).pop();
+            /* (faculatatif) on ajoute un peu de style et de couleur pour 
+            donner un retour à l'utilsateur et montrer que son fichier est bien upload */
+		    input.style.color = 'black';
+            /* On remplace le text qu'on avait mis par défaut par le nom du fichier */
+		    input.setAttribute('data-before', fileName);
+        })
+    })
+
+</script>				</div>
+				</div>
+					</div>
+				</div>
+				</div>
+					<script type="rocketlazyloadscript">
+				const lazyloadRunObserver = () => {
+					const lazyloadBackgrounds = document.querySelectorAll( `.e-con.e-parent:not(.e-lazyloaded)` );
+					const lazyloadBackgroundObserver = new IntersectionObserver( ( entries ) => {
+						entries.forEach( ( entry ) => {
+							if ( entry.isIntersecting ) {
+								let lazyloadBackground = entry.target;
+								if( lazyloadBackground ) {
+									lazyloadBackground.classList.add( 'e-lazyloaded' );
+								}
+								lazyloadBackgroundObserver.unobserve( entry.target );
+							}
+						});
+					}, { rootMargin: '200px 0px 200px 0px' } );
+					lazyloadBackgrounds.forEach( ( lazyloadBackground ) => {
+						lazyloadBackgroundObserver.observe( lazyloadBackground );
+					} );
+				};
+				const events = [
+					'DOMContentLoaded',
+					'elementor/lazyload/observe',
+				];
+				events.forEach( ( event ) => {
+					document.addEventListener( event, lazyloadRunObserver );
+				} );
+			</script>
+			<link rel='stylesheet' id='elementor-post-1646-css' href='wp-content/uploads/elementor/css/post-1646.css%3Fver=1760908597.css' media='all' />
+<script type="rocketlazyloadscript" id="rocket-browser-checker-js-after">
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script id="rocket-preload-links-js-extra">
+var RocketPreloadLinksConfig = {"excludeUris":"\/(?:.+\/)?feed(?:\/(?:.+\/?)?)?$|\/(?:.+\/)?embed\/|\/(index.php\/)?(.*)wp-json(\/.*|$)|\/refer\/|\/go\/|\/recommend\/|\/recommends\/","usesTrailingSlash":"","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|pdf|doc|docx|xls|xlsx|php|html|htm","siteUrl":"https:\/\/green-nerds.io","onHoverDelay":"100","rateThrottle":"3"};
+</script>
+<script type="rocketlazyloadscript" id="rocket-preload-links-js-after">
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.32.4" id="elementor-webpack-runtime-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.32.4" id="elementor-frontend-modules-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Partager sur Facebook","shareOnTwitter":"Partager sur Twitter","pinIt":"L\u2019\u00e9pingler","download":"T\u00e9l\u00e9charger","downloadImage":"T\u00e9l\u00e9charger une image","fullscreen":"Plein \u00e9cran","zoom":"Zoom","share":"Partager","playVideo":"Lire la vid\u00e9o","previous":"Pr\u00e9c\u00e9dent","next":"Suivant","close":"Fermer","a11yCarouselPrevSlideMessage":"Diapositive pr\u00e9c\u00e9dente","a11yCarouselNextSlideMessage":"Diapositive suivante","a11yCarouselFirstSlideMessage":"Ceci est la premi\u00e8re diapositive","a11yCarouselLastSlideMessage":"Ceci est la derni\u00e8re diapositive","a11yCarouselPaginationBulletMessage":"Aller \u00e0 la diapositive"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Portrait mobile","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Paysage","value":880,"default_value":880,"direction":"max","is_enabled":true},"tablet":{"label":"Tablette en mode portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablette en mode paysage","value":1200,"default_value":1200,"direction":"max","is_enabled":true},"laptop":{"label":"Portable","value":1366,"default_value":1366,"direction":"max","is_enabled":true},"widescreen":{"label":"\u00c9cran large","value":2400,"default_value":2400,"direction":"min","is_enabled":true}},
+"hasCustomBreakpoints":true},"version":"3.32.4","is_static":false,"experimentalFeatures":{"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"theme_builder_v2":true,"nested-elements":true,"home_screen":true,"global_classes_should_enforce_capabilities":true,"e_variables":true,"cloud-library":true,"e_opt_in_v4_page":true,"import-export-customization":true,"e_pro_variables":true},"urls":{"assets":"https:\/\/green-nerds.io\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/green-nerds.io\/wp-admin\/admin-ajax.php","uploadUrl":"https:\/\/green-nerds.io\/wp-content\/uploads"},"nonces":{"floatingButtonsClickTracking":"810c64def2"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"body_background_background":"classic","active_breakpoints":["viewport_mobile","viewport_mobile_extra","viewport_tablet","viewport_tablet_extra","viewport_laptop","viewport_widescreen"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":66,"title":"Mentions%20L%C3%A9gales%20-%20Green%20Nerds","excerpt":"","featuredImage":false}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.32.4" id="elementor-frontend-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/elementor-pro/assets/lib/smartmenus/jquery.smartmenus.min.js?ver=1.2.1" id="smartmenus-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/enlighter/cache/enlighterjs.min.js?ver=0A0B0C" id="enlighterjs-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" id="enlighterjs-js-after">
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":4,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":true,"theme":"enlighter","language":"generic","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+</script>
+<script src="wp-includes/js/wp-embed.min.js%3Fver=6.8.3" id="wp-embed-js" defer data-wp-strategy="defer"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://www.google.com/recaptcha/api.js?render=explicit&amp;ver=3.32.2" id="elementor-recaptcha_v3-api-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/elementor-pro/assets/js/webpack-pro.runtime.min.js?ver=3.32.2" id="elementor-pro-webpack-runtime-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-includes/js/dist/hooks.min.js?ver=4d63a3d491d11ffd8ac6" id="wp-hooks-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6" id="wp-i18n-js"></script>
+<script type="rocketlazyloadscript" id="wp-i18n-js-after">
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+</script>
+<script type="rocketlazyloadscript" id="elementor-pro-frontend-js-before">
+var ElementorProFrontendConfig = {"ajaxurl":"https:\/\/green-nerds.io\/wp-admin\/admin-ajax.php","nonce":"b46a2a735b","urls":{"assets":"https:\/\/green-nerds.io\/wp-content\/plugins\/elementor-pro\/assets\/","rest":"https:\/\/green-nerds.io\/wp-json\/"},"settings":{"lazy_load_background_images":true},"popup":{"hasPopUps":true},"shareButtonsNetworks":{"facebook":{"title":"Facebook","has_counter":true},"twitter":{"title":"Twitter"},"linkedin":{"title":"LinkedIn","has_counter":true},"pinterest":{"title":"Pinterest","has_counter":true},"reddit":{"title":"Reddit","has_counter":true},"vk":{"title":"VK","has_counter":true},"odnoklassniki":{"title":"OK","has_counter":true},"tumblr":{"title":"Tumblr"},"digg":{"title":"Digg"},"skype":{"title":"Skype"},"stumbleupon":{"title":"StumbleUpon","has_counter":true},"mix":{"title":"Mix"},"telegram":{"title":"Telegram"},"pocket":{"title":"Pocket","has_counter":true},"xing":{"title":"XING","has_counter":true},"whatsapp":{"title":"WhatsApp"},"email":{"title":"Email"},"print":{"title":"Print"},"x-twitter":{"title":"X"},"threads":{"title":"Threads"}},
+"facebook_sdk":{"lang":"fr_FR","app_id":""},"lottie":{"defaultAnimationUrl":"https:\/\/green-nerds.io\/wp-content\/plugins\/elementor-pro\/modules\/lottie\/assets\/animations\/default.json"}};
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.32.2" id="elementor-pro-frontend-js" data-rocket-defer defer></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://green-nerds.io/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.32.2" id="pro-elements-handlers-js" data-rocket-defer defer></script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+<script>(()=>{class RocketElementorPreload{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode-wpr",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}t(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this.i(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach((t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this.o(t)}catch(t){}}))}o(t){const e=JSON.parse(t.dataset.settings),i=e.m||e.animation_delay||0,n=e[this.animationSettingKeys.find((t=>e[t]))];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let o=setTimeout((()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this.l(t,e)}),i);window.addEventListener("rocket-startLoading",(function(){clearTimeout(o)}))}i(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach((t=>{e.forEach((e=>{i.push(t+e)}))})),i}l(t,e){this.i().forEach((t=>delete e[t])),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorPreload;requestAnimationFrame(t.t.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorPreload.run)})();</script></body>
+</html>
+
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1760908638 -->
