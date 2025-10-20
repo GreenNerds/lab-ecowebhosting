@@ -18,7 +18,17 @@ Comparer deux configurations Nginx :
 
 ## Étapes du lab
 
-### 1. Récupération du site (miroir statique)
+### 1. Cloner le repo Github du lab
+
+Le repo est ici : https://github.com/GreenNerds/lab-ecowebhosting
+
+Commande :
+
+```bash
+git clone git@github.com:GreenNerds/lab-ecowebhosting.git
+```
+
+### 2. Récupération du site (miroir statique)
 
 Un script est fourni dans `scripts/fetch_from_sitemap.sh`.
 
@@ -32,7 +42,7 @@ Le dossier `legacy_website/green-nerds.io` contient ensuite les pages HTML et le
 
 ---
 
-### 2. Génération du fichier `crawl.html`
+### 3. Génération du fichier `crawl.html`
 
 EcoIndex analyse les liens internes d’un site.  
 Pour que le crawl fonctionne correctement, il faut créer une page qui liste les URLs à parcourir :
@@ -59,7 +69,7 @@ Cette page sera accessible sur :
 
 ---
 
-### 3. Lancement de l’environnement
+### 4. Lancement de l’environnement
 
 ```bash
 docker compose up -d --force-recreate
@@ -80,7 +90,7 @@ curl -I http://localhost:18080/crawl.html
 
 ---
 
-### 4. Mesure EcoIndex
+### 5. Mesure EcoIndex
 
 Le flag `--add-host host.docker.internal:host-gateway` permet au conteneur EcoIndex d’accéder à l’environnement WSL2.
 
@@ -100,7 +110,7 @@ Les rapports sont générés dans :
 
 ---
 
-### 5. Visualisation des rapports
+### 6. Visualisation des rapports
 
 ```bash
 # Rapport baseline
@@ -116,7 +126,7 @@ Ensuite, ouvrez dans le navigateur :
 
 ---
 
-### 6. Nettoyage
+### 7. Nettoyage
 
 ```bash
 docker compose down
